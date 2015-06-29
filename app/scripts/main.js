@@ -8,6 +8,7 @@
       'CartApp.service.books',
       'CartApp.service.users',
       'CartApp.service.carts',
+      'CartApp.service.purchase',
       'CartApp.config',
       'CartApp.items',
       'CartApp.item',

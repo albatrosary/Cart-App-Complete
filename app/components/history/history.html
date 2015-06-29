@@ -1,1 +1,14 @@
-history.html
+<div class="panel panel-default" ng-repeat="item in history.list">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><h4>購入日：{{item.datetime}}</h4></div>
+
+  <!-- Table -->
+  <table class="table">
+    <tr><th>#</th><th>isbn</th><th>購入数</th></tr>
+    <tr ng-repeat="book in item.items">
+      <td>{{$index+1}}</td>
+      <td>{{book.isbn}}</td>
+      <td>{{book.count}}</td>
+    </tr>
+  </table>
+</div>

@@ -25,6 +25,7 @@ server.listen(port,process.env.OPENSHIFT_NODEJS_IP || process.env.IP || undefine
 require('./api/gruntfiles')(app);
 require('./api/books')(app);
 require('./api/users')(app);
+require('./api/purchase')(app);
 
 exports = module.exports = app;
 

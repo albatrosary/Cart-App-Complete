@@ -75,6 +75,9 @@
    * Private Method
    */
   var setUsers = function (user) {
+    if (!user[0]) {
+      return;
+    }
     vm.name = user[0].name;
     vm.address = user[0].address;
     vm.tel = user[0].tel;

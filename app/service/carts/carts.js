@@ -18,6 +18,7 @@
 
     var cartsService = {
       get: function () {
+        console.log('CartsService', carts);
         return carts;
       },
       add: function (isbn) {
@@ -28,14 +29,18 @@
         }
       },
       remove: function (isbn) {
-        if (!carts[isbn]) {
-        } else {
-          if (carts[isbn] === 0) {
-            return ;
-          }
-          carts[isbn] = carts[isbn]-1;
+        if (!carts[isbn] || carts[isbn] === 0) {
+          return ;
+        }
+
+        carts[isbn] = carts[isbn]-1;
+        if (carts[isbn] === 0) {
+          delete carts[isbn];
         }
       },
+      clear: function () {
+        carts=[];
+      }
     };
     return cartsService;
   }

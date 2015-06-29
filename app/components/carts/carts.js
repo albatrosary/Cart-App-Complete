@@ -11,18 +11,19 @@
     .module('CartApp.carts', [])
     .controller('CartsController', CartsController);
 
-  CartsController.$inject = ['CartsService', 'BooksService', 'UsersService', '$location'];
+  CartsController.$inject = ['CartsService', 'BooksService', 'UsersService', 'PurchaseService', '$location'];
   /**
    * AboutController
    *
    * @class AboutController
    * @constructor
    */
-  function CartsController(CartsService, BooksService, UsersService, $location) {
+  function CartsController(CartsService, BooksService, UsersService, PurchaseService, $location) {
   	console.log('CartsController Constructor');
     this.CartsService = CartsService;
     this.BooksService = BooksService;
     this.UsersService = UsersService;
+    this.PurchaseService = PurchaseService;
     this.$location = $location;
   }
 
@@ -49,13 +50,7 @@
 
     var users = vm.UsersService.query().$promise;
     users
-      .then(function (user) {
-        if(user[0].name) {
-          vm.$location.path('/items');
-        } else {
-          vm.$location.path('/user');
-        }
-      });
+      .then(register);
   };
   /**
    * Static property
@@ -74,12 +69,35 @@
    * Private Method
    */
   var setBooks = function (book) {
-    console.log(book);
     var carts = vm.CartsService.get();
     vm.list.push({
       title: book.title,
       count: carts[book.isbn]
     }); 
+  };
+
+  var register = function (user) {
+    if(user[0]) {
+      var carts = vm.CartsService.get();
+      var purchase = [];
+      for(var isbn in carts) {
+        var item = {
+          'isbn': isbn,
+          'count': carts[isbn]
+        };
+
+        purchase.push(item);
+      }
+
+      var result = vm.PurchaseService.save(purchase).$promise;
+      result
+        .then(function () {
+          vm.CartsService.clear();
+          vm.$location.path('/items');
+        });
+    } else {
+      vm.$location.path('/user');
+    }
   };
 
 })();
