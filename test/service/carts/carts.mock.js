@@ -2,12 +2,12 @@
   'use strict';
 
   angular
-    .module('CartApp.mock.service.aaaaa',[])
-    .factory('AaaaaService', AaaaaService);
+    .module('CartApp.mock.service.carts',[])
+    .factory('CartsService', CartsService);
 
   var result = {};
 
-  function AaaaaService(){
+  function CartsService(){
     
     var someSpy = jasmine.createSpy().and.returnValue({
       then: function(cb){

@@ -5,6 +5,6 @@
     <p>{{item.isbn}}</p>
     <p>{{item.price}}</p>
     <p><a ng-link="item({isbn: item.isbn})">詳細</a></p>
-    <p><a ng-click="addCart(item.isbn)" class="btn btn-default" role="button">+</a> <a ng-click="removeCart(item.isbn)"  class="btn btn-default" role="button">-</a></p>
+    <p><a ng-click="items.addCart(item.isbn)" class="btn btn-default" role="button">+</a> <a ng-click="items.removeCart(item.isbn)"  class="btn btn-default" role="button">-</a></p>
   </div>
 </div>

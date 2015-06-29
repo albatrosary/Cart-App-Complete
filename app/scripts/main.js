@@ -7,6 +7,7 @@
       'ngNewRouter',
       'CartApp.service.books',
       'CartApp.service.users',
+      'CartApp.service.carts',
       'CartApp.config',
       'CartApp.items',
       'CartApp.item',

@@ -11,16 +11,17 @@
     .module('CartApp.items', [])
     .controller('ItemsController', ItemsController);
 
-  ItemsController.$inject = ['BooksService'];
+  ItemsController.$inject = ['BooksService', 'CartsService'];
   /**
    * AboutController
    *
    * @class AboutController
    * @constructor
    */
-  function ItemsController(BooksService) {
+  function ItemsController(BooksService, CartsService) {
   	console.log('ItemsController Constructor');
     this.BooksService = BooksService;
+    this.CartsService = CartsService;
   }
 
   /**
@@ -41,11 +42,14 @@
 
   ItemsController.prototype.addCart = function(isbn) {
     console.log('ItemsController addCart Method');
+    vm.CartsService.add(isbn);
   };
 
 
   ItemsController.prototype.removeCart = function(isbn) {
     console.log('ItemsController removeCart Method');
+    console.log(carts);
+    vm.CartsService.remove(isbn);
   };
 
   /**
@@ -60,6 +64,8 @@
    * Private property
    */
   var vm;
+
+  var carts = [];
 
   /**
    * Private Method

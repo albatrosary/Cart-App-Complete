@@ -1,1 +1,18 @@
-carts.html
+<div class="form-group">
+  <input class="btn btn-default" type="button" ng-click="carts.purchase()" value="購入">
+</div>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">カート一覧</div>
+
+  <!-- Table -->
+  <table class="table">
+    <tr><th>#</th><th>タイトル</th><th>購入数</th></tr>
+    <tr ng-repeat="item in carts.list">
+      <td>{{$index+1}}</td>
+      <td>{{item.title}}</td>
+      <td>{{item.count}}</td>
+    </tr>
+  </table>
+</div>

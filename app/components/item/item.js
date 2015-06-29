@@ -53,17 +53,14 @@
   var vm;
 
   var setItem = function (item) {
-    vm.item = item;
+    vm.title       = item.title;
+    vm.description = item.description;
+    vm.author      = item.author;
+    vm.publisher   = item.publisher;
+    vm.isbn        = item.isbn;
+    vm.price       = item.price;
   };
 
-  // var item = {
-  //   title: 'タイトル１',
-  //   description: 'これはタイトル１です',
-  //   author: '作成者',
-  //   publisher: '出版社',
-  //   isbn: '111-1-1234-5678-9',
-  //   price: '1000'
-  // };
   /**
    * Private Method
    */
