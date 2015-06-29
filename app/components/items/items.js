@@ -39,6 +39,15 @@
   };
 
 
+  ItemsController.prototype.addCart = function(isbn) {
+    console.log('ItemsController addCart Method');
+  };
+
+
+  ItemsController.prototype.removeCart = function(isbn) {
+    console.log('ItemsController removeCart Method');
+  };
+
   /**
    * Static property
    */
