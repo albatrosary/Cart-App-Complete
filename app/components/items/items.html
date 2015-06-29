@@ -1,0 +1,9 @@
+<div class="media" ng-repeat="item in items.items">
+  <div class="media-body">
+    <h4 class="media-heading">{{item.title}}</h4>
+    <p>{{item.description}}</p>
+    <p>{{item.isbn}}</p>
+    <p>{{item.price}}</p>
+    <p><a ng-link="item({isbn: item.isbn})">詳細</a></p>
+  </div>
+</div>
