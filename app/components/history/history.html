@@ -3,12 +3,12 @@
   <div class="panel-heading"><h4>購入日：{{item.datetime}}</h4></div>
 
   <!-- Table -->
-  <table class="table">
+  <table class="table table-striped">
     <tr><th>#</th><th>isbn</th><th>購入数</th></tr>
     <tr ng-repeat="book in item.items">
       <td>{{$index+1}}</td>
       <td>{{book.isbn}}</td>
-      <td>{{book.count}}</td>
+      <td>{{book.count | number:0}}</td>
     </tr>
   </table>
 </div>

@@ -6,12 +6,12 @@
   <div class="panel-heading">カート一覧</div>
 
   <!-- Table -->
-  <table class="table">
+  <table class="table table-striped">
     <tr><th>#</th><th>タイトル</th><th>購入数</th></tr>
     <tr ng-repeat="item in carts.list">
       <td>{{$index+1}}</td>
       <td>{{item.title}}</td>
-      <td>{{item.count}}</td>
+      <td>{{item.count | number:0}}</td>
     </tr>
   </table>
 </div>

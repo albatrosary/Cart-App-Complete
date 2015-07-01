@@ -11,6 +11,7 @@
       'CartApp.service.purchase',
       'CartApp.config',
       'CartApp.value',
+      'CartApp.directive.message',
       'CartApp.items',
       'CartApp.item',
       'CartApp.carts',

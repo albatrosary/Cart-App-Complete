@@ -13,7 +13,7 @@
     <div class="collapse navbar-collapse" id="app-nav">
       <ul class="nav navbar-nav">
         <li><a ng-link="items">商品一覧</a></li>
-        <li><a ng-link="carts">ショッピングカート一覧 <span class="badge">{{CartApp.carts}}</span></a></li>
+        <li><a ng-link="carts">ショッピングカート一覧 <span class="badge">{{CartApp.carts | number:0}}</span></a></li>
         <li><a ng-link="history">購入履歴</a></li>
         <li><a ng-link="user">購入者情報</a></li>
       </ul>

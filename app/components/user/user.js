@@ -48,6 +48,7 @@
 
     var users = vm.UsersService.save(user).$promise;
     users
+      .then(saveSuccess)
       .catch(error);
   };
 
@@ -55,6 +56,7 @@
     console.log('UserController delete Method');
     var users = vm.UsersService.delete().$promise;
     users
+      .then(deleteSuccess)
       .catch(error);
   };
 
@@ -81,11 +83,22 @@
     vm.name = user[0].name;
     vm.address = user[0].address;
     vm.tel = user[0].tel;
-    vm.mail = user[0].mail;
+    vm.mail = user[0].mail; 
+  };
+  
+  var saveSuccess = function () {
+    vm.status = 'success';
+    vm.message = '登録されました';
   };
 
-  var error = function () {
-
+  var deleteSuccess = function () {
+    vm.status = 'success';
+    vm.message = '削除しました';
+  };
+  
+  var error = function (e) {
+    vm.status = 'dengire';
+    vm.message = 'エラーが発生しました：'+e;
   };
 
 })();
