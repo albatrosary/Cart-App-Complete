@@ -5,6 +5,7 @@
   angular
     .module('CartApp', [
       'ngNewRouter',
+      'ui.bootstrap',
       'CartApp.service.books',
       'CartApp.service.users',
       'CartApp.service.carts',

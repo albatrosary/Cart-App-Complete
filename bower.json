@@ -5,7 +5,8 @@
     "bootstrap-sass-official": "~3.3.5",
     "angular": "~1.4.0",
     "angular-new-router": "~0.5.3",
-    "angular-resource": "~1.4.0"
+    "angular-resource": "~1.4.0",
+    "angular-ui-bootstrap-bower": "~0.13.0"
   },
   "overrides": {
     "angular-new-router": {

@@ -60,6 +60,11 @@
       .catch(error);
   };
 
+  UserController.prototype.closeAlert = function () {
+    console.log('close');
+    vm.status = '';
+    vm.message = '';
+  };
   /**
    * Static property
    */

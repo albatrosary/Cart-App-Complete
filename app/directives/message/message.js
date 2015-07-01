@@ -14,19 +14,21 @@
    */
   function messageDirective(){
     function messageLink(scope, element, attrs, ctrl){
-      console.log(scope);
-      console.log(element);
-      console.log(attrs);
-      console.log(ctrl);
+      scope.close = function () {
+        // scope.text = '';
+        // scope.status = '';
+      };
     }
 
     return {
       restrict: 'AE',
-      replace: false,
+      transclude:true,
+      replace:true,
       templateUrl: 'directives/message/message.html',
       scope: {
         text: '=',
-        status: '='
+        status: '=',
+        close: '&'
       },
       link: messageLink
     };

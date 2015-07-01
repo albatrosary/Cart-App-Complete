@@ -1,4 +1,5 @@
-<cart-app-message text="user.message" status="user.status" ng-show="!!user.message"></cart-app-message>
+<alert type="{{user.status}}" ng-show="!!user.message" close="user.closeAlert()">{{user.message}}</alert>
+
 <form class="form-horizontal" name="users" ng-submit="user.register()" novalidate>
   <div class="form-group">
     <label for="name" class="col-sm-2 control-label">名前</label>

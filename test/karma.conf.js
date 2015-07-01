@@ -23,6 +23,7 @@ module.exports = function(config) {
       'bower_components/angular/angular.js',
       'bower_components/angular-new-router/dist/router.es5.js',
       'bower_components/angular-resource/angular-resource.js',
+      'bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       // injector:js
