@@ -1,27 +1,28 @@
-<form class="form-horizontal" ng-submit="user.register()" novalidate>
+<form class="form-horizontal" name="users" ng-submit="user.register()" novalidate>
   <div class="form-group">
     <label for="name" class="col-sm-2 control-label">名前</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="name" placeholder="Jane Doe" ng-model="user.name">
+      <input type="text" class="form-control" id="name" placeholder="Jane Doe" ng-model="user.name" required>
     </div>
     <label for="address" class="col-sm-2 control-label">住所</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="address" placeholder="東京都文京区" ng-model="user.address">
+      <input type="text" class="form-control" id="address" placeholder="東京都文京区" ng-model="user.address" required>
     </div>
     <label for="tel" class="col-sm-2 control-label">電話</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="tel" placeholder="03-1234-5678" ng-model="user.tel">
+      <input type="tel" class="form-control" id="tel" placeholder="03-1234-5678" ng-model="user.tel" required
+      pattern="\d{1,5}-\d{1,4}-\d{4,5}">
     </div>
     <label for="mail" class="col-sm-2 control-label">メール</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="mail" placeholder="jane.doe@mail.com"  ng-model="user.mail">
+      <input type="email" class="form-control" id="mail" placeholder="jane.doe@mail.com"  ng-model="user.mail" required>
     </div>
   </div>
   <div class="form-group">
     <div class="col-sm-2"></div>
     <div class="col-sm-10">
       <input class="btn btn-default" type="button" ng-click="user.delete()" value="削除">
-      <input class="btn btn-default" type="submit" value="登録">
+      <input class="btn btn-default" type="submit" value="登録" ng-disabled="!users.$valid">
     </div>
   </div>
 </form>

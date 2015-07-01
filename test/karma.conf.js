@@ -35,6 +35,7 @@ module.exports = function(config) {
       'app/components/items/items.js',
       'app/components/user/user.js',
       'app/scripts/config.js',
+      'app/scripts/value.js',
       'app/service/books/books.js',
       'app/service/carts/carts.js',
       'app/service/gruntfiles/gruntfiles.js',

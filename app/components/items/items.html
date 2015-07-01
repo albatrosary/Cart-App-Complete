@@ -3,7 +3,7 @@
     <h4 class="media-heading">{{item.title}}</h4>
     <p>{{item.description}}</p>
     <p>{{item.isbn}}</p>
-    <p>{{item.price}}</p>
+    <p>{{item.price | number:0}}</p>
     <p><a ng-link="item({isbn: item.isbn})">詳細</a></p>
     <p><a ng-click="items.addCart(item.isbn)" class="btn btn-default" role="button">+</a> <a ng-click="items.removeCart(item.isbn)"  class="btn btn-default" role="button">-</a></p>
   </div>

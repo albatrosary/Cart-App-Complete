@@ -10,6 +10,7 @@
       'CartApp.service.carts',
       'CartApp.service.purchase',
       'CartApp.config',
+      'CartApp.value',
       'CartApp.items',
       'CartApp.item',
       'CartApp.carts',
@@ -17,6 +18,8 @@
       'CartApp.user'
     ])
     .controller('AppController', AppController);
+
+  AppController.$inject = ['CartAppValue', '$rootScope'];
 
   AppController.$routeConfig = [
     { path: '/',            redirectTo: '/items' },
@@ -27,5 +30,23 @@
     { path: '/user',         component: 'user' }
   ];
 
-  function AppController () {}
+  function AppController(CartAppValue, $rootScope) {
+    console.log('AppController Constructor');
+    this.CartAppValue = CartAppValue;
+    this.$rootScope = $rootScope;
+    
+    vm = this;    
+    vm.$rootScope.$watch(cartsValue, cartsSet);
+  }
+
+
+  var vm;
+
+  var cartsSet = function(value){
+    vm.carts = value;
+  };
+
+  var cartsValue = function(){
+    return vm.CartAppValue.carts;
+  };
 })();

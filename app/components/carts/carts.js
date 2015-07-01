@@ -11,19 +11,20 @@
     .module('CartApp.carts', [])
     .controller('CartsController', CartsController);
 
-  CartsController.$inject = ['CartsService', 'BooksService', 'UsersService', 'PurchaseService', '$location'];
+  CartsController.$inject = ['CartsService', 'BooksService', 'UsersService', 'PurchaseService', 'CartAppValue','$location'];
   /**
    * AboutController
    *
    * @class AboutController
    * @constructor
    */
-  function CartsController(CartsService, BooksService, UsersService, PurchaseService, $location) {
+  function CartsController(CartsService, BooksService, UsersService, PurchaseService, CartAppValue, $location) {
   	console.log('CartsController Constructor');
     this.CartsService = CartsService;
     this.BooksService = BooksService;
     this.UsersService = UsersService;
     this.PurchaseService = PurchaseService;
+    this.CartAppValue = CartAppValue;
     this.$location = $location;
   }
 
@@ -85,7 +86,6 @@
           'isbn': isbn,
           'count': carts[isbn]
         };
-
         purchase.push(item);
       }
 
@@ -93,6 +93,7 @@
       result
         .then(function () {
           vm.CartsService.clear();
+          vm.CartAppValue.carts = 0;
           vm.$location.path('/items');
         });
     } else {

@@ -1,7 +1,6 @@
 <div class="form-group">
-  <input class="btn btn-default" type="button" ng-click="carts.purchase()" value="購入">
+  <input class="btn btn-default" type="button" ng-click="carts.purchase()" value="購入" ng-disabled="carts.list.length===0">
 </div>
-
 <div class="panel panel-default">
   <!-- Default panel contents -->
   <div class="panel-heading">カート一覧</div>

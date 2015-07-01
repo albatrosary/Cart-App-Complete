@@ -18,7 +18,7 @@
    * @class AboutController
    * @constructor
    */
-  function UserController(UsersService) {
+  function UserController(UsersService, $location) {
   	console.log('UserController Constructor');
     this.UsersService = UsersService;
   }
