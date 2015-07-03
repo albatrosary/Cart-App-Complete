@@ -1,8 +1,14 @@
+/**
+ * This module is Purchase Service module.
+ * @module CartApp.service.purchase
+ */
 (function () {
   'use strict';
   
   angular
-    .module('CartApp.service.purchase',[])
+    .module('CartApp.service.purchase',[
+      'ngResource'
+    ])
     .factory('PurchaseService', PurchaseService);
 
   PurchaseService.$inject = ['$resource'];

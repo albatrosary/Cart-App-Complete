@@ -1,8 +1,6 @@
 /**
- * 
- *
- * @deprecated 
- * @module components/home
+ * This module is Home Components module.
+ * @module CartApp.components.home
  */
 (function () {
   'use strict';
@@ -38,5 +36,4 @@
   HomeController.prototype.activate = function() {
     console.log('HomeController activate Method');
   };
-
 })();

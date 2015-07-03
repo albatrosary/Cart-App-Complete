@@ -1,4 +1,7 @@
-// jshint devel:true
+/**
+ * This module is CartApp module.
+ * @module CartApp
+ */
 (function () {
   'use strict';
 
@@ -6,10 +9,6 @@
     .module('CartApp', [
       'ngNewRouter',
       'ui.bootstrap',
-      'CartApp.service.books',
-      'CartApp.service.users',
-      'CartApp.service.carts',
-      'CartApp.service.purchase',
       'CartApp.config',
       'CartApp.value',
       'CartApp.directive.message',

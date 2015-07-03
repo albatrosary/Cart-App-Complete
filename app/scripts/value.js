@@ -1,3 +1,7 @@
+/**
+ * This module is Value module.
+ * @module CartApp.value
+ */
 (function () {
   'use strict';
 

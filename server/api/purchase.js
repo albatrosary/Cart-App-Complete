@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * This module is purchase module.
+ * @module server.api.purchase
+ */
 exports = module.exports = function(app) {
 
   var purchase = [];

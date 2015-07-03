@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * This module is users module.
+ * @module server.api.users
+ */
 exports = module.exports = function(app) {
 
   var users = [];

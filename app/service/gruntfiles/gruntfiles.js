@@ -1,3 +1,7 @@
+/**
+ * This module is Gruntfiles Service module.
+ * @module CartApp.service.gruntfiles
+ */
 (function () {
   'use strict';
   

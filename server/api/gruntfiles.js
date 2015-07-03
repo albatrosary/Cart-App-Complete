@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * This module is gruntfiles module.
+ * @module server.api.gruntfiles
+ */
 exports = module.exports = function(app) {
 
   var json = require('../data/app.json');

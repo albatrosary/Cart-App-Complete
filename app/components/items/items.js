@@ -1,21 +1,25 @@
 /**
- * 
- *
- * @deprecated 
- * @module components/items
+ * This module is Items Components module.
+ * @module CartApp.components.items
  */
 (function () {
   'use strict';
 
   angular
-    .module('CartApp.items', [])
+    .module('CartApp.items', [
+      'CartApp.service.books',
+      'CartApp.service.carts'
+    ])
     .controller('ItemsController', ItemsController);
 
   ItemsController.$inject = ['BooksService', 'CartsService', 'CartAppValue'];
   /**
-   * AboutController
+   * ItemsController
    *
-   * @class AboutController
+   * @class ItemsController
+   * @param {Object} BooksService
+   * @param {Object} CartsService
+   * @param {Object} CartAppValue
    * @constructor
    */
   function ItemsController(BooksService, CartsService, CartAppValue) {
@@ -58,27 +62,29 @@
   };
 
   /**
-   * Static property
-   */
-
-  /**
-   * Static method, assigned to class
-   */
-
-  /**
-   * Private property
-   */
+   * @property vm
+   * @private
+   */ 
   var vm;
 
+  /**
+   * @property carts
+   * @private
+   */ 
   var carts = [];
 
   /**
-   * Private Method
+   * @method setlist
+   * @private
    */
   var setlist = function (items) {
     vm.items = items;
   };
 
+  /**
+   * @method error
+   * @private
+   */
   var error = function () {
   };
 

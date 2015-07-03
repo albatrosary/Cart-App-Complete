@@ -1,3 +1,7 @@
+/**
+ * This module is Users Service module.
+ * @module CartApp.service.users
+ */
 (function () {
   'use strict';
   

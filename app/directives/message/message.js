@@ -1,3 +1,7 @@
+/**
+ * This module is Message Directive module.
+ * @module CartApp.directive.message
+ */
 (function () {
   'use strict';
 
@@ -8,7 +12,7 @@
   messageDirective.$inject = [];
 
   /**
-   * 
+   * messageDirective
    * @class messageDirective
    * @constructor
    */

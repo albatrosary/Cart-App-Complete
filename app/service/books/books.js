@@ -1,3 +1,7 @@
+/**
+ * This module is Books Service module.
+ * @module CartApp.service.books
+ */
 (function () {
   'use strict';
   

@@ -1,4 +1,7 @@
-// jshint devel:true
+/**
+ * This module is Config module.
+ * @module CartApp.config
+ */
 (function () {
   'use strict';
 

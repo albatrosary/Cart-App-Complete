@@ -1,3 +1,7 @@
+/**
+ * This module is Carts Service module.
+ * @module CartApp.service.carts
+ */
 (function () {
   'use strict';
   

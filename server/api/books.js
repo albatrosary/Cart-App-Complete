@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * This module is books module.
+ * @module server.api.books
+ */
 exports = module.exports = function(app) {
 
   var books = require('../data/books.json');

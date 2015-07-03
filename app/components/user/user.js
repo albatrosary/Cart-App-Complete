@@ -1,21 +1,23 @@
 /**
- * 
- *
- * @deprecated 
- * @module components/user
+ * This module is User Components module.
+ * @module CartApp.components.user
  */
 (function () {
   'use strict';
 
   angular
-    .module('CartApp.user', [])
+    .module('CartApp.user', [
+      'CartApp.service.users'
+    ])
     .controller('UserController', UserController);
 
   UserController.$inject = ['UsersService'];
   /**
-   * AboutController
+   * UserController
    *
-   * @class AboutController
+   * @class UserController
+   * @param {Object} UsersService
+   * @param {Object} $location
    * @constructor
    */
   function UserController(UsersService, $location) {
@@ -37,6 +39,9 @@
       .then(setUsers);
   };
 
+  /**
+   * @method register
+   */
   UserController.prototype.register = function() {
     console.log('UserController register Method');
     var user = {
@@ -52,6 +57,9 @@
       .catch(error);
   };
 
+  /**
+   * @method delete
+   */
   UserController.prototype.delete = function() {
     console.log('UserController delete Method');
     var users = vm.UsersService.delete().$promise;
@@ -60,26 +68,25 @@
       .catch(error);
   };
 
+  /**
+   * @method closeAlert
+   */
   UserController.prototype.closeAlert = function () {
     console.log('close');
     vm.status = '';
     vm.message = '';
   };
-  /**
-   * Static property
-   */
 
   /**
-   * Static method, assigned to class
-   */
-
-  /**
-   * Private property
-   */
+   * @property vm
+   * @private
+   */ 
   var vm;
 
   /**
-   * Private Method
+   * @method setUsers
+   * @param {Object} user
+   * @private
    */
   var setUsers = function (user) {
     if (!user[0]) {
@@ -91,16 +98,28 @@
     vm.mail = user[0].mail; 
   };
   
+  /**
+   * @method saveSuccess
+   * @private
+   */
   var saveSuccess = function () {
     vm.status = 'success';
     vm.message = '登録されました';
   };
 
+  /**
+   * @method deleteSuccess
+   * @private
+   */
   var deleteSuccess = function () {
     vm.status = 'success';
     vm.message = '削除しました';
   };
   
+  /**
+   * @method error
+   * @private
+   */
   var error = function (e) {
     vm.status = 'dengire';
     vm.message = 'エラーが発生しました：'+e;

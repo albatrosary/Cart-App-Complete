@@ -1,8 +1,6 @@
 /**
- * 
- *
- * @deprecated 
- * @module components/contact
+ * This module is Contact Components module.
+ * @module CartApp.components.contact
  */
 (function () {
   'use strict';
@@ -43,23 +41,16 @@
   };
 
   /**
-   * Static property
-   */
-
-  /**
-   * Static method, assigned to class
-   */
-
-  /**
-   * Private property
-   */
-   
+   * @property vm
+   * @private
+   */ 
    var vm;
 
   /**
-   * Private Method
+   * @method someMethod
+   * @private
    */
-   var someMethod = function () {
+  var someMethod = function () {
      vm.case2 = 10;
    };
 })();

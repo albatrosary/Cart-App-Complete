@@ -1,8 +1,6 @@
 /**
- * 
- *
- * @deprecated 
- * @module components/about
+ * This module is About Components module.
+ * @module CartApp.components.about
  */
 (function () {
   'use strict';
@@ -19,6 +17,7 @@
    * AboutController
    *
    * @class AboutController
+   * @param {Object} GruntfilesService
    * @constructor
    */
   function AboutController(GruntfilesService) {
@@ -28,17 +27,11 @@
   }
 
   /**
-  * My method description.  Like other pieces of your comment blocks, 
-  * this can span multiple lines.
-  *
-  * @method activate
-  * @param {String} foo Argument 1
-  * @param {Object} config A config object
-  * @param {String} config.name The name on the config object
-  * @param {Function} config.callback A callback function on the config object
-  * @param {Boolean} [extra=false] Do extra, optional work
-  * @return {Boolean} Returns true on success
-  */
+   * My method description.  Like other pieces of your comment blocks, 
+   * this can span multiple lines.
+   *
+   * @method activate
+   */
   AboutController.prototype.activate = function() {
     console.log('AboutController Method activate');
 
@@ -50,25 +43,25 @@
   };
   
   /**
-   * Static property
-   */
-
-  /**
-   * Static method, assigned to class
-   */
-
-  /**
-   * Private property
+   * @property vm
+   * @private
    */
   var vm;
 
+
   /**
-   * Private Method
+   * @method setlist
+   * @param {Object} list
+   * @private
    */
   var setlist = function (list) {
     vm.list = list;
   };
 
+  /**
+   * @method error
+   * @private
+   */
   var error = function () {
   };
 })();

@@ -1,21 +1,22 @@
 /**
- * 
- *
- * @deprecated 
- * @module components/history
+ * This module is History Components module.
+ * @module CartApp.components.history
  */
 (function () {
   'use strict';
 
   angular
-    .module('CartApp.history', [])
+    .module('CartApp.history', [
+      'CartApp.service.purchase'
+    ])
     .controller('HistoryController', HistoryController);
 
   HistoryController.$inject = ['PurchaseService'];
   /**
-   * AboutController
+   * HistoryController
    *
-   * @class AboutController
+   * @class HistoryController
+   * @param {Object} PurchaseService
    * @constructor
    */
   function HistoryController(PurchaseService) {
@@ -42,22 +43,9 @@
 
   };
 
-
   /**
-   * Static property
-   */
-
-  /**
-   * Static method, assigned to class
-   */
-
-  /**
-   * Private property
-   */
+   * @property vm
+   * @private
+   */ 
   var vm;
-
-  /**
-   * Private Method
-   */
-
 })();
