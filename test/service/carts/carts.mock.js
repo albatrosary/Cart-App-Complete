@@ -6,7 +6,6 @@
     .factory('CartsService', CartsService);
 
   function CartsService(){
-    
     return {
       get: getSpy,
       add: addSpy,
@@ -18,9 +17,10 @@
   var result = [];
 
   var getSpy = jasmine.createSpy().and.returnValue(
-    function(cb){
+    function(cb) {
       return result;
-  });
+    }
+  );
 
   var addSpy = jasmine.createSpy().and.returnValue({
     then: function(cb){

@@ -8,21 +8,21 @@
   var result = {};
 
   function PurchaseService(){
-    
-    var someSpy = jasmine.createSpy().and.returnValue({
-      then: function(cb){
-        cb(result);
-        return {
-          catch: function (ccb) {
-            /* Default Case Not Exeption; */
-            ccb();
-          }
-        };
-      }
-    });
-
     return {
       some: someSpy
     };
   }
+
+  var someSpy = jasmine.createSpy().and.returnValue({
+    then: function(cb){
+      cb(result);
+      return {
+        catch: function (ccb) {
+          /* Default Case Not Exeption; */
+          ccb();
+        }
+      };
+    }
+  });
+
 })();

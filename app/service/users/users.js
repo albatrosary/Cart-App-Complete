@@ -24,8 +24,6 @@
     var usersService = $resource('/api/users/:id', {});
     return usersService;
   }
-
-  
 })();
 
 

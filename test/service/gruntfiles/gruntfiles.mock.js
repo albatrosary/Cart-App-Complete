@@ -1,6 +1,16 @@
 (function(){
   'use strict';
 
+  angular
+    .module('CartApp.mock.service.gruntfiles',[])
+    .factory('GruntfilesService', GruntfilesService);
+
+  function GruntfilesService(){
+    return {
+      query: querySpy
+    };
+  }
+
   var json = [
     {
       'name': 'connect-history-api-fallback',
@@ -19,31 +29,18 @@
     }
   ];
 
-  angular
-    .module('CartApp.mock.service.gruntfiles',[])
-    .factory('GruntfilesService', GruntfilesService);
-  
-  GruntfilesService.$inject = [];
+  var querySpy = jasmine.createSpy().and.returnValue({
+    $promise: {
+      then: function(cb){
+        
+        cb(json);
 
-  function GruntfilesService(){
-    
-    var querySpy = jasmine.createSpy().and.returnValue({
-      $promise: {
-        then: function(cb){
-          
-          cb(json);
-
-          return {
-            catch:function(ccb){
-              ccb(false);
-            }
-          };
-        }
+        return {
+          catch:function(ccb){
+            ccb(false);
+          }
+        };
       }
-    });
-
-    return {
-      query: querySpy
-    };
-  }
+    }
+  });
 })();
