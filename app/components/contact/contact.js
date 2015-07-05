@@ -1,12 +1,13 @@
 /**
- * This module is Contact Components module.
+ * Contact Components module.
+ *
  * @module CartApp.components.contact
  */
 (function () {
   'use strict';
 
   angular
-    .module('CartApp.contact', [])
+    .module('CartApp.components.contact', [])
     .controller('ContactController', ContactController);
 
   ContactController.$inject = [];
@@ -22,8 +23,8 @@
   }
 
   /**
-  * My method description.  Like other pieces of your comment blocks, 
-  * this can span multiple lines.
+   * The controller activate makes it convenient to re-use the logic 
+   * for a refresh for the controller/View, keeps the logic together.
   *
   * @method activate
   * @param {String} foo Argument 1
@@ -41,6 +42,8 @@
   };
 
   /**
+   * Angular ViewModel
+   *
    * @property vm
    * @private
    */ 

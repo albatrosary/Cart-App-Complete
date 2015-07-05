@@ -1,5 +1,6 @@
 /**
- * This module is Message Directive module.
+ * Message Directive module.
+ *
  * @module CartApp.directive.message
  */
 (function () {
@@ -13,6 +14,7 @@
 
   /**
    * messageDirective
+   *
    * @class messageDirective
    * @constructor
    */

@@ -1,12 +1,13 @@
 /**
- * This module is About Components module.
+ * About Components module.
+ *
  * @module CartApp.components.about
  */
 (function () {
   'use strict';
 
   angular
-    .module('CartApp.about', [
+    .module('CartApp.components.about', [
       'CartApp.service.gruntfiles'
     ])
     .controller('AboutController', AboutController);
@@ -27,8 +28,8 @@
   }
 
   /**
-   * My method description.  Like other pieces of your comment blocks, 
-   * this can span multiple lines.
+   * The controller activate makes it convenient to re-use the logic 
+   * for a refresh for the controller/View, keeps the logic together.
    *
    * @method activate
    */
@@ -43,15 +44,20 @@
   };
   
   /**
-   * @property vm
+   * Angular ViewModel
+   *
+   * @type Object
+   * @default 'this'
    * @private
    */
   var vm;
 
 
   /**
+   * Setting user data to ViewModel
+   *
    * @method setlist
-   * @param {Object} list
+   * @param list {Object} Gruntfiles List
    * @private
    */
   var setlist = function (list) {
@@ -59,9 +65,13 @@
   };
 
   /**
+   * It will capture the error at the time of data acquisition
+   *
    * @method error
+   * @param e {Object} error message
    * @private
    */
-  var error = function () {
+  var error = function (e) {
+    vm.errors = e;
   };
 })();

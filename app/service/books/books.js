@@ -1,5 +1,6 @@
 /**
- * This module is Books Service module.
+ * Books Service module.
+ *
  * @module CartApp.service.books
  */
 (function () {
@@ -19,11 +20,7 @@
    * @constructor
    */
   function BooksService($resource){
-    
-    var someProperty={};
-
-    var booksService = $resource('/api/books/:isbn', {});
-    return booksService;
+    return $resource('/api/books/:isbn', {});
   }
 
 })();

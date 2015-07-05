@@ -3,7 +3,7 @@
 
   describe('Controller: HistoryController', function () {
 
-    beforeEach(module('CartApp.history'));
+    beforeEach(module('CartApp.components.history'));
 
     var HistoryController;
 

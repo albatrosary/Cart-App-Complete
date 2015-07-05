@@ -3,7 +3,7 @@
 
   describe('Controller: AboutController', function () {
 
-    beforeEach(module('CartApp.about'));
+    beforeEach(module('CartApp.components.about'));
     beforeEach(module('CartApp.mock.service.gruntfiles'));
 
     var AboutController;

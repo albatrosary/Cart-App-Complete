@@ -3,7 +3,10 @@
 
   describe('Controller: ItemsController', function () {
 
-    beforeEach(module('CartApp.items'));
+    beforeEach(module('CartApp.components.items'));
+    
+    beforeEach(module('CartApp.value'));
+    
     beforeEach(module('CartApp.mock.service.books'));
 
     var ItemsController;

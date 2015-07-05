@@ -1,5 +1,6 @@
 /**
- * This module is Gruntfiles Service module.
+ * Gruntfiles Service module.
+ *
  * @module CartApp.service.gruntfiles
  */
 (function () {

@@ -1,5 +1,6 @@
 /**
- * This module is Config module.
+ * Config module.
+ *
  * @module CartApp.config
  */
 (function () {
@@ -9,13 +10,21 @@
     .module('CartApp.config', [])
     .config(AppConfig);
 
+  /**
+   * AppController
+   * Application use HTML5 Mode. 
+   *
+   * Example:
+   * #### Hashbang Mode
+   * http://www.example.com/#/aaa/
+   * #### HTML5 Mode
+   * http://www.example.com/aaa/
+   *  
+   * @class AppConfig
+   * @param {Object} $locationProvider
+   * @constructor
+   */
   function AppConfig($locationProvider){
-    /*
-      # Hashbang Mode
-      http://www.example.com/#/aaa/
-      # HTML5 Mode
-      http://www.example.com/aaa/
-    */
     $locationProvider.html5Mode(true);
   }
 

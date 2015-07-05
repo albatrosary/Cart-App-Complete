@@ -3,7 +3,7 @@
 
   describe('Controller: HomeController', function () {
 
-    beforeEach(module('CartApp.home'));
+    beforeEach(module('CartApp.components.home'));
 
     var HomeController;
 

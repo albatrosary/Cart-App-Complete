@@ -3,7 +3,7 @@
 
   describe('Controller: ContactController', function () {
 
-    beforeEach(module('CartApp.contact'));
+    beforeEach(module('CartApp.components.contact'));
 
     var ContactController;
 

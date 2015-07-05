@@ -1,5 +1,17 @@
 /**
- * This module is CartApp module.
+ * CartApp module.
+ *
+ * ### Routing
+ *
+``` 
+   { path: '/',            redirectTo: '/items' },
+   { path: '/items',        component: 'items' },
+   { path: '/item/:isbn',   component: 'item' },
+   { path: '/carts',        component: 'carts' },
+   { path: '/history',      component: 'history' },
+   { path: '/user',         component: 'user' }
+```
+ *
  * @module CartApp
  */
 (function () {
@@ -12,15 +24,13 @@
       'CartApp.config',
       'CartApp.value',
       'CartApp.directive.message',
-      'CartApp.items',
-      'CartApp.item',
-      'CartApp.carts',
-      'CartApp.history',
-      'CartApp.user'
+      'CartApp.components.items',
+      'CartApp.components.item',
+      'CartApp.components.carts',
+      'CartApp.components.history',
+      'CartApp.components.user'
     ])
     .controller('AppController', AppController);
-
-  AppController.$inject = ['CartAppValue', '$rootScope'];
 
   AppController.$routeConfig = [
     { path: '/',            redirectTo: '/items' },
@@ -31,6 +41,16 @@
     { path: '/user',         component: 'user' }
   ];
 
+  AppController.$inject = ['CartAppValue', '$rootScope']; 
+
+  /**
+   * AppController
+   *
+   * @class AppController
+   * @param {Object} CartAppValue
+   * @param {Object} $rootScope
+   * @constructor
+   */
   function AppController(CartAppValue, $rootScope) {
     console.log('AppController Constructor');
     this.CartAppValue = CartAppValue;

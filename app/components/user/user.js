@@ -1,12 +1,13 @@
 /**
- * This module is User Components module.
+ * User Components module.
+ *
  * @module CartApp.components.user
  */
 (function () {
   'use strict';
 
   angular
-    .module('CartApp.user', [
+    .module('CartApp.components.user', [
       'CartApp.service.users'
     ])
     .controller('UserController', UserController);
@@ -26,11 +27,11 @@
   }
 
   /**
-  * My method description.  Like other pieces of your comment blocks, 
-  * this can span multiple lines.
-  *
-  * @method activate
-  */
+   * The controller activate makes it convenient to re-use the logic 
+   * for a refresh for the controller/View, keeps the logic together.
+   *
+   * @method activate
+   */
   UserController.prototype.activate = function() {
   	console.log('UserController activate Method');
     vm = this;
@@ -78,6 +79,8 @@
   };
 
   /**
+   * Angular ViewModel
+   *
    * @property vm
    * @private
    */ 
@@ -117,7 +120,10 @@
   };
   
   /**
+   * It will capture the error at the time of Gruntfile data acquisition
+   * 
    * @method error
+   * @param e {Object} error message
    * @private
    */
   var error = function (e) {

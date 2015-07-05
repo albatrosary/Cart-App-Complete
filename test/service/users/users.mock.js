@@ -9,20 +9,22 @@
 
   function UsersService(){
     
-    var someSpy = jasmine.createSpy().and.returnValue({
-      then: function(cb){
-        cb(result);
-        return {
-          catch: function (ccb) {
-            /* Default Case Not Exeption; */
-            ccb();
-          }
-        };
+    var querySpy = jasmine.createSpy().and.returnValue({
+      $promise: {
+        then: function(cb){
+          cb(result);
+          return {
+            catch: function (ccb) {
+              /* Default Case Not Exeption; */
+              ccb();
+            }
+          };
+        }
       }
     });
 
     return {
-      some: someSpy
+      query: querySpy
     };
   }
 })();

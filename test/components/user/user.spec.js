@@ -3,7 +3,7 @@
 
   describe('Controller: UserController', function () {
 
-    beforeEach(module('CartApp.user'));
+    beforeEach(module('CartApp.components.user'));
     beforeEach(module('CartApp.mock.service.users'));
 
     var UserController;

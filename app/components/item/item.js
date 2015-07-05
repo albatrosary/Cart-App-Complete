@@ -1,17 +1,19 @@
 /**
- * This module is Item Components module.
+ * Item Components module.
+ *
  * @module CartApp.components.item
  */
 (function () {
   'use strict';
 
   angular
-    .module('CartApp.item', [
+    .module('CartApp.components.item', [
       'CartApp.service.books'
     ])
     .controller('ItemController', ItemController);
 
   ItemController.$inject = ['$routeParams', 'BooksService'];
+  
   /**
    * ItemController
    *
@@ -27,20 +29,23 @@
   }
 
   /**
-  * My method description.  Like other pieces of your comment blocks, 
-  * this can span multiple lines.
-  *
-  * @method activate
-  */
+   * The controller activate makes it convenient to re-use the logic 
+   * for a refresh for the controller/View, keeps the logic together.
+   *
+   * @method activate
+   */
   ItemController.prototype.activate = function() {
   	console.log('ItemController activate Method');
     vm = this;
     var books = vm.BooksService.get({isbn: this.isbn}).$promise;
     books
-      .then(setItem);
+      .then(setItem)
+      .catch(error);
   };
 
   /**
+   * Angular ViewModel
+   *
    * @property vm
    * @private
    */ 
@@ -57,5 +62,16 @@
     vm.publisher   = item.publisher;
     vm.isbn        = item.isbn;
     vm.price       = item.price;
+  };
+
+  /**
+   * It will capture the error at the time of Gruntfile data acquisition
+   * 
+   * @method error
+   * @param e {Object} error message
+   * @private
+   */
+  var error = function (e) {
+    vm.error = e;
   };
 })();

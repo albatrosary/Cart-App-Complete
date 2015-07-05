@@ -1,5 +1,6 @@
 /**
- * This module is Value module.
+ * Value module.
+ *
  * @module CartApp.value
  */
 (function () {

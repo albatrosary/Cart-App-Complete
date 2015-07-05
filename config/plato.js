@@ -3,8 +3,12 @@
 
   module.exports = {
     options: {
-      options : {
-        jshint : '<%= jshintrc.app %>'
+      jshint: '<%= jshintrc.app %>',
+      complexity: {
+        logicalor: true,
+        switchcase: true,
+        forin: true,
+        trycatch: true
       }
     },
     app:{

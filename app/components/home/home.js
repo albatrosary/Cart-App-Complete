@@ -1,12 +1,13 @@
 /**
- * This module is Home Components module.
+ * Home Components module.
+ *
  * @module CartApp.components.home
  */
 (function () {
   'use strict';
 
   angular
-    .module('CartApp.home', [])
+    .module('CartApp.components.home', [])
     .controller('HomeController', HomeController);
 
   HomeController.$inject = [];
@@ -22,17 +23,11 @@
   }
 
   /**
-  * My method description.  Like other pieces of your comment blocks, 
-  * this can span multiple lines.
-  *
-  * @method activate
-  * @param {String} foo Argument 1
-  * @param {Object} config A config object
-  * @param {String} config.name The name on the config object
-  * @param {Function} config.callback A callback function on the config object
-  * @param {Boolean} [extra=false] Do extra, optional work
-  * @return {Boolean} Returns true on success
-  */
+   * The controller activate makes it convenient to re-use the logic 
+   * for a refresh for the controller/View, keeps the logic together.
+   *
+   * @method activate
+   */
   HomeController.prototype.activate = function() {
     console.log('HomeController activate Method');
   };

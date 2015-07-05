@@ -1,5 +1,6 @@
 /**
- * This module is Users Service module.
+ * Users Service module.
+ *
  * @module CartApp.service.users
  */
 (function () {
@@ -19,14 +20,12 @@
    * @constructor
    */
   function UsersService($resource){
-    
-    var someProperty={};
 
     var usersService = $resource('/api/users/:id', {});
-
     return usersService;
   }
 
+  
 })();
 
 

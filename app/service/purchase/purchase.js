@@ -1,5 +1,6 @@
 /**
- * This module is Purchase Service module.
+ * Purchase Service module.
+ *
  * @module CartApp.service.purchase
  */
 (function () {
