@@ -16,6 +16,8 @@
     describe('ItemsController',function(){
       it('Test Case', function () {
         ItemsController.activate();
+        expect(ItemsController.items.length).toEqual(3);
+        expect(ItemsController.items[0].title).toEqual('AngularJSリファレンス');
       });
     });
   });

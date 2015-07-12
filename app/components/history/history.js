@@ -37,12 +37,8 @@
     vm.list = [];
     var purchase = vm.PurchaseService.query().$promise;
     purchase
-      .then(function (data) {
-        data.items = angular.toJson(data.items);
-        vm.list = data;
-      })
+      .then(setList)
       .catch(error);
-
   };
 
   /**
@@ -53,6 +49,11 @@
    */ 
   var vm;
 
+  var setList = function (data) {
+    data.items = angular.toJson(data.items);
+    vm.list = data;
+  };
+  
   /**
    * It will capture the error at the time of Gruntfile data acquisition
    * 

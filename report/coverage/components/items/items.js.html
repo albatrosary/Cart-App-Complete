@@ -15,10 +15,10 @@
 <div class="header medium">
     <h1>Code coverage report for <span class="entity">components/items/items.js</span></h1>
     <h2>
-        Statements: <span class="metric">72.41% <small>(21 / 29)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">64.86% <small>(24 / 37)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Branches: <span class="metric">0% <small>(0 / 2)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Functions: <span class="metric">71.43% <small>(5 / 7)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Lines: <span class="metric">72.41% <small>(21 / 29)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">50% <small>(5 / 10)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">64.86% <small>(24 / 37)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
     <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">components/items/</a> &#187; items.js</div>
@@ -124,7 +124,37 @@
 97
 98
 99
-100</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -163,6 +193,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
@@ -171,6 +215,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
@@ -254,11 +314,25 @@
     this.BooksService = BooksService;
     this.CartsService = CartsService;
     this.CartAppValue = CartAppValue;
+    
   }
+&nbsp;
+  /**
+   * Before switching to a new component, this hook runs for each active component in the app. If any of them return false, a rejected promise, or a promise that resolves to false, the navigation is cancelled.
+   * This hook is useful for authentication.
+   *
+   * @method canActivate
+   */
+  ItemsController.prototype.canActivate = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >    console.log('ItemsController canActivate Method');</span>
+<span class="cstat-no" title="statement not covered" >    return true;</span>
+  };
 &nbsp;
   /**
    * The controller activate makes it convenient to re-use the logic 
    * for a refresh for the controller/View, keeps the logic together.
+   * This hook fires just before the nagivation finishes.
+   * This hook is useful for cases where you want your component to do some intensive work.
    *
    * @method activate
    */
@@ -271,6 +345,22 @@
       .catch(error);
   };
 &nbsp;
+  /**
+   * This hook fires for each component that is removed as part of navigation. canDeactivate fires before any new components are instantiated. If any of them return false, a rejected promise, or a promise that resolves to false, the navigation is cancelled.
+   * canDeactivate is useful for making sure that data is properly persisted before navigating away.
+   */
+  ItemsController.prototype.canDeactivate = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >    console.log('ItemsController canDeactivate Method');</span>
+<span class="cstat-no" title="statement not covered" >    return true;</span>
+  };
+&nbsp;
+  /**
+   * This hook fires for each component that is removed as part of navigation. deactivate is useful for doing cleanup work.
+   * This hook fires after the canActivate of the new component and canDeactivate of the component to be removed, but before activate of the new component.
+   */
+  ItemsController.prototype.deactivate = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >    console.log('ItemsController deactivate Method');</span>
+  };
 &nbsp;
   ItemsController.prototype.addCart = <span class="fstat-no" title="function not covered" >function(isbn) {</span>
 <span class="cstat-no" title="statement not covered" >    console.log('ItemsController addCart Method');</span>
@@ -327,7 +417,7 @@
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Jul 05 2015 17:17:00 GMT+0900 (JST)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Jul 06 2015 08:17:00 GMT+0900 (JST)</div>
 </div>
 <script src="../../prettify.js"></script>
 <script>

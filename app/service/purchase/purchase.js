@@ -20,9 +20,7 @@
    * @constructor
    */
   function PurchaseService($resource){
-    
-    var purchaseService = $resource('/api/purchase', {});
-    return purchaseService;
+    return $resource('/api/purchase', {});
   }
 })();
 

@@ -10,20 +10,31 @@
     .module('CartApp.service.carts',[])
     .factory('CartsService', CartsService);
 
-  CartsService.$inject = [];
+  CartsService.$inject = ['CartAppValue'];
 
   /**
    * 
    * @class CartsService
    * @constructor
    */
-  function CartsService () {
-     return cartsService;
+  function CartsService (CartAppValue) {
+    return cartsService;
   }
 
   var carts=[];
 
   var cartsService = {
+    purchase: function () {
+      var _carts = [];
+      for(var isbn in carts) {
+        var item = {
+          'isbn': isbn,
+          'count': carts[isbn]
+        };
+        _carts.push(item);
+      }
+      return _carts;
+    },
     get: function () {
       console.log('CartsService', carts);
       return carts;

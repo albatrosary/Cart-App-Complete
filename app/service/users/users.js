@@ -20,9 +20,7 @@
    * @constructor
    */
   function UsersService($resource){
-
-    var usersService = $resource('/api/users/:id', {});
-    return usersService;
+    return $resource('/api/users/:id', {});
   }
 })();
 

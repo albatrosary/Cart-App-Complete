@@ -15,7 +15,7 @@
     ])
     .controller('CartsController', CartsController);
 
-  CartsController.$inject = ['CartsService', 'BooksService', 'UsersService', 'PurchaseService', 'CartAppValue','$location'];
+  CartsController.$inject = ['CartsService', 'BooksService', 'UsersService', 'PurchaseService', 'CartAppValue','$location', '$q'];
   
   /**
    * CartsController
@@ -29,7 +29,7 @@
    * @param {Object} $location
    * @constructor
    */
-  function CartsController(CartsService, BooksService, UsersService, PurchaseService, CartAppValue, $location) {
+  function CartsController(CartsService, BooksService, UsersService, PurchaseService, CartAppValue, $location, $q) {
   	console.log('CartsController Constructor');
     this.CartsService = CartsService;
     this.BooksService = BooksService;
@@ -37,6 +37,7 @@
     this.PurchaseService = PurchaseService;
     this.CartAppValue = CartAppValue;
     this.$location = $location;
+    this.$q = $q;
   }
 
   /**
@@ -54,7 +55,7 @@
       var books = vm.BooksService.get({isbn: isbn}).$promise;
       books
         .then(setBooks)
-      .catch(error);
+        .catch(error);
     }
   };
 
@@ -66,9 +67,13 @@
   CartsController.prototype.purchase = function () {
     console.log('CartsController purchase Method');
 
+    deferred = vm.$q.defer();
     var users = vm.UsersService.query().$promise;
     users
-      .then(register);
+      .then(checkUser)
+      .then(register)
+      .then(clear)
+      .catch(error);
   };
   
   /**
@@ -78,6 +83,8 @@
    * @private
    */
   var vm;
+
+  var deferred;
 
   /**
    * @method setBooks
@@ -92,34 +99,36 @@
     }); 
   };
 
+  var checkUser = function (user) {
+
+    if(user.length===0) {
+      vm.$location.path('/user');
+      deferred.reject('user is not registered.');
+      return deferred.promise;
+    }
+
+    deferred.resolve(user[0]);
+
+    return deferred.promise;
+  };
+
   /**
    * @method register
    * @param {Object} user
    * @private
    */
-  var register = function (user) {
-    if(user[0]) {
-      var carts = vm.CartsService.get();
-      var purchase = [];
-      for(var isbn in carts) {
-        var item = {
-          'isbn': isbn,
-          'count': carts[isbn]
-        };
-        purchase.push(item);
-      }
+  var register = function (response) {
+    console.log('register');
 
-      var result = vm.PurchaseService.save(purchase).$promise;
-      result
-        .then(function () {
-          vm.CartsService.clear();
-          vm.CartAppValue.carts = 0;
-          vm.$location.path('/items');
-        })
-        .catch(error);
-    } else {
-      vm.$location.path('/user');
-    }
+    var purchase = vm.CartsService.purchase();
+
+    return vm.PurchaseService.save(purchase).$promise;
+  };
+
+  var clear = function (response) {
+    vm.CartsService.clear();
+    vm.CartAppValue.carts = 0;
+    vm.$location.path('/items');
   };
 
   /**

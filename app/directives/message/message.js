@@ -19,12 +19,6 @@
    * @constructor
    */
   function messageDirective(){
-    function messageLink(scope, element, attrs, ctrl){
-      scope.close = function () {
-        // scope.text = '';
-        // scope.status = '';
-      };
-    }
 
     return {
       restrict: 'AE',
@@ -35,8 +29,7 @@
         text: '=',
         status: '=',
         close: '&'
-      },
-      link: messageLink
+      }
     };
   }
 })();
