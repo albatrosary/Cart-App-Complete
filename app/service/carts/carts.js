@@ -10,14 +10,14 @@
     .module('CartApp.service.carts',[])
     .factory('CartsService', CartsService);
 
-  CartsService.$inject = ['CartAppValue'];
+  CartsService.$inject = [];
 
   /**
    * 
    * @class CartsService
    * @constructor
    */
-  function CartsService (CartAppValue) {
+  function CartsService () {
     return cartsService;
   }
 
