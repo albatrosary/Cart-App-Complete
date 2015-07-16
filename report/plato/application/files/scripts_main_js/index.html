@@ -48,7 +48,7 @@
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
-      <p class="stat">49</p>
+      <p class="stat">57</p>
     </div>
   </div>
   <div class="row historical">
@@ -90,7 +90,19 @@
 <div class="container">
   <div class="row">
     <textarea id="file-source" class="col-md-12">/**
- * This module is CartApp module.
+ * CartApp module.
+ *
+ * ### Routing
+ *
+``` 
+   { path: &#039;/&#039;,            redirectTo: &#039;/items&#039; },
+   { path: &#039;/items&#039;,        component: &#039;items&#039; },
+   { path: &#039;/item/:isbn&#039;,   component: &#039;item&#039; },
+   { path: &#039;/carts&#039;,        component: &#039;carts&#039; },
+   { path: &#039;/history&#039;,      component: &#039;history&#039; },
+   { path: &#039;/user&#039;,         component: &#039;user&#039; }
+```
+ *
  * @module CartApp
  */
 (function () {
@@ -103,15 +115,13 @@
       &#039;CartApp.config&#039;,
       &#039;CartApp.value&#039;,
       &#039;CartApp.directive.message&#039;,
-      &#039;CartApp.items&#039;,
-      &#039;CartApp.item&#039;,
-      &#039;CartApp.carts&#039;,
-      &#039;CartApp.history&#039;,
-      &#039;CartApp.user&#039;
+      &#039;CartApp.components.items&#039;,
+      &#039;CartApp.components.item&#039;,
+      &#039;CartApp.components.carts&#039;,
+      &#039;CartApp.components.history&#039;,
+      &#039;CartApp.components.user&#039;
     ])
     .controller(&#039;AppController&#039;, AppController);
-
-  AppController.$inject = [&#039;CartAppValue&#039;, &#039;$rootScope&#039;];
 
   AppController.$routeConfig = [
     { path: &#039;/&#039;,            redirectTo: &#039;/items&#039; },
@@ -122,6 +132,16 @@
     { path: &#039;/user&#039;,         component: &#039;user&#039; }
   ];
 
+  AppController.$inject = [&#039;CartAppValue&#039;, &#039;$rootScope&#039;]; 
+
+  /**
+   * AppController
+   *
+   * @class AppController
+   * @param {Object} CartAppValue
+   * @param {Object} $rootScope
+   * @constructor
+   */
   function AppController(CartAppValue, $rootScope) {
     console.log(&#039;AppController Constructor&#039;);
     this.CartAppValue = CartAppValue;

@@ -44,11 +44,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
-      <p class="stat">116.08</p>
+      <p class="stat">120.65</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
-      <p class="stat">111</p>
+      <p class="stat">140</p>
     </div>
   </div>
   <div class="row historical">
@@ -62,11 +62,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
-      <p class="stat">14.43</p>
+      <p class="stat">15.58</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
-      <p class="stat">0.59</p>
+      <p class="stat">0.72</p>
     </div>
   </div>
 </div>
@@ -90,14 +90,15 @@
 <div class="container">
   <div class="row">
     <textarea id="file-source" class="col-md-12">/**
- * This module is Carts Components module.
+ * Carts Components module.
+ *
  * @module CartApp.components.carts
  */
 (function () {
   &#039;use strict&#039;;
 
   angular
-    .module(&#039;CartApp.carts&#039;, [
+    .module(&#039;CartApp.components.carts&#039;, [
       &#039;CartApp.service.carts&#039;,
       &#039;CartApp.service.books&#039;,
       &#039;CartApp.service.users&#039;,
@@ -105,7 +106,7 @@
     ])
     .controller(&#039;CartsController&#039;, CartsController);
 
-  CartsController.$inject = [&#039;CartsService&#039;, &#039;BooksService&#039;, &#039;UsersService&#039;, &#039;PurchaseService&#039;, &#039;CartAppValue&#039;,&#039;$location&#039;];
+  CartsController.$inject = [&#039;CartsService&#039;, &#039;BooksService&#039;, &#039;UsersService&#039;, &#039;PurchaseService&#039;, &#039;CartAppValue&#039;,&#039;$location&#039;, &#039;$q&#039;];
   
   /**
    * CartsController
@@ -119,7 +120,7 @@
    * @param {Object} $location
    * @constructor
    */
-  function CartsController(CartsService, BooksService, UsersService, PurchaseService, CartAppValue, $location) {
+  function CartsController(CartsService, BooksService, UsersService, PurchaseService, CartAppValue, $location, $q) {
   	console.log(&#039;CartsController Constructor&#039;);
     this.CartsService = CartsService;
     this.BooksService = BooksService;
@@ -127,14 +128,15 @@
     this.PurchaseService = PurchaseService;
     this.CartAppValue = CartAppValue;
     this.$location = $location;
+    this.$q = $q;
   }
 
   /**
-  * My method description.  Like other pieces of your comment blocks, 
-  * this can span multiple lines.
-  *
-  * @method activate
-  */
+   * The controller activate makes it convenient to re-use the logic 
+   * for a refresh for the controller/View, keeps the logic together.
+   *
+   * @method activate
+   */
   CartsController.prototype.activate = function() {
   	console.log(&#039;CartsController activate Method&#039;);
     vm = this;
@@ -143,23 +145,37 @@
     for(var isbn in carts) {
       var books = vm.BooksService.get({isbn: isbn}).$promise;
       books
-        .then(setBooks);
+        .then(setBooks)
+        .catch(error);
     }
   };
 
+  /**
+   * To buy goods that have registered to cart.
+   *
+   * @method purchase
+   */
   CartsController.prototype.purchase = function () {
     console.log(&#039;CartsController purchase Method&#039;);
 
+    deferred = vm.$q.defer();
     var users = vm.UsersService.query().$promise;
     users
-      .then(register);
+      .then(checkUser)
+      .then(register)
+      .then(clear)
+      .catch(error);
   };
   
   /**
+   * Angular ViewModel
+   *
    * @property vm
    * @private
    */
   var vm;
+
+  var deferred;
 
   /**
    * @method setBooks
@@ -174,33 +190,47 @@
     }); 
   };
 
+  var checkUser = function (user) {
+
+    if(user.length===0) {
+      vm.$location.path(&#039;/user&#039;);
+      deferred.reject(&#039;user is not registered.&#039;);
+      return deferred.promise;
+    }
+
+    deferred.resolve(user[0]);
+
+    return deferred.promise;
+  };
+
   /**
    * @method register
    * @param {Object} user
    * @private
    */
-  var register = function (user) {
-    if(user[0]) {
-      var carts = vm.CartsService.get();
-      var purchase = [];
-      for(var isbn in carts) {
-        var item = {
-          &#039;isbn&#039;: isbn,
-          &#039;count&#039;: carts[isbn]
-        };
-        purchase.push(item);
-      }
+  var register = function (response) {
+    console.log(&#039;register&#039;);
 
-      var result = vm.PurchaseService.save(purchase).$promise;
-      result
-        .then(function () {
-          vm.CartsService.clear();
-          vm.CartAppValue.carts = 0;
-          vm.$location.path(&#039;/items&#039;);
-        });
-    } else {
-      vm.$location.path(&#039;/user&#039;);
-    }
+    var purchase = vm.CartsService.purchase();
+
+    return vm.PurchaseService.save(purchase).$promise;
+  };
+
+  var clear = function (response) {
+    vm.CartsService.clear();
+    vm.CartAppValue.carts = 0;
+    vm.$location.path(&#039;/items&#039;);
+  };
+
+  /**
+   * It will capture the error at the time of data acquisition
+   * 
+   * @method error
+   * @param e {Object} error message
+   * @private
+   */
+  var error = function (e) {
+    vm.error = e;
   };
 
 })();</textarea>
