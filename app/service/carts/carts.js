@@ -3,30 +3,30 @@
  *
  * @module CartApp.service.carts
  */
-(function () {
+(function() {
   'use strict';
-  
+
   angular
-    .module('CartApp.service.carts',[])
+    .module('CartApp.service.carts', [])
     .factory('CartsService', CartsService);
 
   CartsService.$inject = [];
 
   /**
-   * 
+   *
    * @class CartsService
    * @constructor
    */
-  function CartsService () {
+  function CartsService() {
     return cartsService;
   }
 
-  var carts=[];
+  var carts = [];
 
   var cartsService = {
     purchase: function () {
       var _carts = [];
-      for(var isbn in carts) {
+      for (var isbn in carts) {
         var item = {
           'isbn': isbn,
           'count': carts[isbn]
@@ -43,7 +43,7 @@
       if (!carts[isbn]) {
         carts[isbn] = 1;
       } else {
-        carts[isbn] = carts[isbn]+1;
+        carts[isbn] = carts[isbn] + 1;
       }
     },
     remove: function (isbn) {
@@ -51,16 +51,14 @@
         return ;
       }
 
-      carts[isbn] = carts[isbn]-1;
+      carts[isbn] = carts[isbn] - 1;
       if (carts[isbn] === 0) {
         delete carts[isbn];
       }
     },
     clear: function () {
-      carts=[];
+      carts = [];
     }
   };
 
 })();
-
-

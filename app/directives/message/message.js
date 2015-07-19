@@ -7,7 +7,7 @@
   'use strict';
 
   angular
-    .module('CartApp.directive.message',[])
+    .module('CartApp.directive.message', [])
     .directive('cartAppMessage', messageDirective);
 
   messageDirective.$inject = [];
@@ -18,7 +18,7 @@
    * @class messageDirective
    * @constructor
    */
-  function messageDirective(){
+  function messageDirective() {
 
     return {
       restrict: 'AE',

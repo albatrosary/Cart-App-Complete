@@ -1,7 +1,7 @@
-(function(){
+(function() {
   'use strict';
 
-  describe('Controller: CartsController', function () {
+  describe('Controller: CartsController', function() {
 
     beforeEach(module('CartApp.components.carts'));
     beforeEach(module('CartApp.value'));
@@ -12,12 +12,12 @@
 
     var CartsController;
 
-    beforeEach(inject(function ($controller) {
+    beforeEach(inject(function($controller) {
       CartsController = $controller('CartsController');
     }));
 
-    describe('CartsController',function(){
-      it('Test Case', function () {
+    describe('CartsController', function() {
+      it('Test Case', function() {
         CartsController.activate();
       });
     });

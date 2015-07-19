@@ -1,7 +1,7 @@
-(function(){
+(function() {
   'use strict';
 
-  describe('Controller: ContactController', function () {
+  describe('Controller: ContactController', function() {
 
     beforeEach(module('CartApp.components.contact'));
 
@@ -11,8 +11,8 @@
       ContactController = $controller('ContactController');
     }));
 
-    describe('ContactController',function(){
-      it('Test Case', function () {
+    describe('ContactController', function() {
+      it('Test Case', function() {
         ContactController.activate();
       });
     });

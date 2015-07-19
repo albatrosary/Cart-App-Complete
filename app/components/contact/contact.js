@@ -11,7 +11,7 @@
     .controller('ContactController', ContactController);
 
   ContactController.$inject = [];
-  
+
   /**
    * ContactController
    *
@@ -19,11 +19,11 @@
    * @constructor
    */
   function ContactController() {
-  	console.log('ContactController Constructor');
+    console.log('ContactController Constructor');
   }
 
   /**
-   * The controller activate makes it convenient to re-use the logic 
+   * The controller activate makes it convenient to re-use the logic
    * for a refresh for the controller/View, keeps the logic together.
   *
   * @method activate
@@ -35,7 +35,7 @@
   * @return {Boolean} Returns true on success
   */
   ContactController.prototype.activate = function() {
-  	console.log('ContactController activate Method');
+    console.log('ContactController activate Method');
     vm = this;
     vm.case1 = 20;
     someMethod();
@@ -46,14 +46,14 @@
    *
    * @property vm
    * @private
-   */ 
-   var vm;
+   */
+  var vm;
 
   /**
    * @method someMethod
    * @private
    */
-  var someMethod = function () {
-     vm.case2 = 10;
-   };
+  var someMethod = function() {
+    vm.case2 = 10;
+  };
 })();

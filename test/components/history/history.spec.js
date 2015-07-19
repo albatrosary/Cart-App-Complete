@@ -1,7 +1,7 @@
-(function(){
+(function() {
   'use strict';
 
-  describe('Controller: HistoryController', function () {
+  describe('Controller: HistoryController', function() {
 
     beforeEach(module('CartApp.components.history'));
 
@@ -11,8 +11,8 @@
       HistoryController = $controller('HistoryController');
     }));
 
-    describe('HistoryController',function(){
-      it('Test Case', function () {
+    describe('HistoryController', function() {
+      it('Test Case', function() {
         HistoryController.activate();
       });
     });

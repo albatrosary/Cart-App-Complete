@@ -1,7 +1,7 @@
-(function(){
+(function() {
   'use strict';
 
-  describe('Controller: ItemsController', function () {
+  describe('Controller: ItemsController', function() {
 
     beforeEach(module('CartApp.components.items'));
     beforeEach(module('CartApp.value'));
@@ -9,12 +9,12 @@
 
     var ItemsController;
 
-    beforeEach(inject(function ($controller) {
+    beforeEach(inject(function($controller) {
       ItemsController = $controller('ItemsController');
     }));
 
-    describe('ItemsController',function(){
-      it('Test Case', function () {
+    describe('ItemsController', function() {
+      it('Test Case', function() {
         ItemsController.activate();
         expect(ItemsController.items.length).toEqual(3);
         expect(ItemsController.items[0].title).toEqual('AngularJSリファレンス');

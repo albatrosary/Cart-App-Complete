@@ -3,7 +3,7 @@
  *
  * @module CartApp.components.history
  */
-(function () {
+(function() {
   'use strict';
 
   angular
@@ -21,18 +21,18 @@
    * @constructor
    */
   function HistoryController(PurchaseService) {
-  	console.log('HistoryController Constructor');
+    console.log('HistoryController Constructor');
     this.PurchaseService = PurchaseService;
   }
 
   /**
-   * The controller activate makes it convenient to re-use the logic 
+   * The controller activate makes it convenient to re-use the logic
    * for a refresh for the controller/View, keeps the logic together.
    *
    * @method activate
    */
   HistoryController.prototype.activate = function() {
-  	console.log('HistoryController activate Method');
+    console.log('HistoryController activate Method');
     vm = this;
     vm.list = [];
     var purchase = vm.PurchaseService.query().$promise;
@@ -46,22 +46,22 @@
    *
    * @property vm
    * @private
-   */ 
+   */
   var vm;
 
-  var setList = function (data) {
+  var setList = function(data) {
     data.items = angular.toJson(data.items);
     vm.list = data;
   };
-  
+
   /**
    * It will capture the error at the time of Gruntfile data acquisition
-   * 
+   *
    * @method error
-   * @param e {Object} error message
+   * @param {Object} e error message
    * @private
    */
-  var error = function (e) {
+  var error = function(e) {
     vm.error = e;
   };
 

@@ -3,11 +3,11 @@
  *
  * @module CartApp.service.users
  */
-(function () {
+(function() {
   'use strict';
-  
+
   angular
-    .module('CartApp.service.users',[
+    .module('CartApp.service.users', [
       'ngResource'
     ])
     .factory('UsersService', UsersService);
@@ -15,13 +15,11 @@
   UsersService.$inject = ['$resource'];
 
   /**
-   * 
+   *
    * @class UsersService
    * @constructor
    */
-  function UsersService($resource){
+  function UsersService($resource) {
     return $resource('/api/users/:id', {});
   }
 })();
-
-

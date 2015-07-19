@@ -22,18 +22,18 @@
    * @constructor
    */
   function UserController(UsersService, $location) {
-  	console.log('UserController Constructor');
+    console.log('UserController Constructor');
     this.UsersService = UsersService;
   }
 
   /**
-   * The controller activate makes it convenient to re-use the logic 
+   * The controller activate makes it convenient to re-use the logic
    * for a refresh for the controller/View, keeps the logic together.
    *
    * @method activate
    */
   UserController.prototype.activate = function() {
-  	console.log('UserController activate Method');
+    console.log('UserController activate Method');
     vm = this;
     var users = vm.UsersService.query().$promise;
     users
@@ -83,7 +83,7 @@
    *
    * @property vm
    * @private
-   */ 
+   */
   var vm;
 
   /**
@@ -98,9 +98,9 @@
     vm.name = user[0].name;
     vm.address = user[0].address;
     vm.tel = user[0].tel;
-    vm.mail = user[0].mail; 
+    vm.mail = user[0].mail;
   };
-  
+
   /**
    * @method saveSuccess
    * @private
@@ -118,17 +118,17 @@
     vm.status = 'success';
     vm.message = '削除しました';
   };
-  
+
   /**
    * It will capture the error at the time of Gruntfile data acquisition
-   * 
+   *
    * @method error
-   * @param e {Object} error message
+   * @param {Object} e error message
    * @private
    */
   var error = function (e) {
     vm.status = 'dengire';
-    vm.message = 'エラーが発生しました：'+e;
+    vm.message = 'エラーが発生しました：' + e;
   };
 
 })();

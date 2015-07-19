@@ -5,9 +5,9 @@
  */
 (function () {
   'use strict';
-  
+
   angular
-    .module('CartApp.service.books',[
+    .module('CartApp.service.books', [
       'ngResource'
     ])
     .factory('BooksService', BooksService);
@@ -15,14 +15,12 @@
   BooksService.$inject = ['$resource'];
 
   /**
-   * 
+   *
    * @class BooksService
    * @constructor
    */
-  function BooksService($resource){
+  function BooksService($resource) {
     return $resource('/api/books/:isbn', {});
   }
 
 })();
-
-

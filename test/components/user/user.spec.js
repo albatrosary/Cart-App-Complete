@@ -1,19 +1,19 @@
-(function(){
+(function() {
   'use strict';
 
-  describe('Controller: UserController', function () {
+  describe('Controller: UserController', function() {
 
     beforeEach(module('CartApp.components.user'));
     beforeEach(module('CartApp.mock.service.users'));
 
     var UserController;
 
-    beforeEach(inject(function ($controller) {
+    beforeEach(inject(function($controller) {
       UserController = $controller('UserController');
     }));
 
-    describe('UserController',function(){
-      it('Test Case', function () {
+    describe('UserController', function() {
+      it('Test Case', function() {
         UserController.activate();
       });
     });

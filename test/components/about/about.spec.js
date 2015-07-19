@@ -1,18 +1,18 @@
-(function(){
+(function() {
   'use strict';
 
-  describe('Controller: AboutController', function () {
+  describe('Controller: AboutController', function() {
 
     beforeEach(module('CartApp.components.about'));
     beforeEach(module('CartApp.mock.service.gruntfiles'));
 
     var AboutController;
 
-    beforeEach(inject(function ($controller) {
+    beforeEach(inject(function($controller) {
       AboutController = $controller('AboutController');
     }));
 
-    describe('AboutController',function(){
+    describe('AboutController', function() {
       it('Set Grunt List', function () {
         AboutController.activate();
         expect(AboutController.list[0].name).toEqual('connect-history-api-fallback');
@@ -23,9 +23,9 @@
       it('spec', function() {
         // setup
         var obj = {
-            method: function() {
-                console.log('obj#method()');
-            }
+          method: function() {
+            console.log('obj#method()');
+          }
         };
 
         spyOn(obj, 'method');

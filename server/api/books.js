@@ -18,8 +18,8 @@ exports = module.exports = function(app) {
     var id = req.params.id;
     // something
     console.log('/api/books/:id');
-    var book = books.filter(function(item, index){
-      if (item.isbn === id) {
+    var book = books.filter(function(item, index) {
+      if (item.isbn === id) {
         return true;
       }
     });

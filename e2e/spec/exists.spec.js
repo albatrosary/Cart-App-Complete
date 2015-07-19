@@ -1,7 +1,7 @@
 describe('protractor sample', function() {
   'use strict';
 
-  beforeEach(function () {
+  beforeEach(function() {
     browser.get('http://localhost:9001');
   });
 
@@ -16,23 +16,23 @@ describe('protractor sample', function() {
     var itemRemoveClick = function(rowIndex) {
       return aboutElement(rowIndex, by.css('a[ng-click="items.removeCart(item.isbn)"]'));
     };
-    var aboutElement = function(rowIndex, selector){
+    var aboutElement = function(rowIndex, selector) {
       return element(by.repeater('item in items.items').row(rowIndex)).element(selector);
     };
     var i, count;
-    for(i=0;i<5; i++) {
+    for (i = 0; i < 5; i++) {
       itemAddClick(0).click();
     }
     count = element(by.css('.badge'));
     expect(count.getText()).toEqual('5');
 
-    for(i=0;i<3; i++) {
+    for (i = 0; i < 3; i++) {
       itemAddClick(1).click();
     }
     count = element(by.css('.badge'));
     expect(count.getText()).toEqual('8');
 
-    for(i=0;i<2; i++) {
+    for (i = 0; i < 2; i++) {
       itemRemoveClick(0).click();
     }
     count = element(by.css('.badge'));
@@ -75,16 +75,16 @@ describe('protractor sample', function() {
     var itemClick = function(rowIndex) {
       return aboutElement(rowIndex, by.css('a[ng-link="item({isbn: item.isbn})"]'));
     };
-    var aboutElement = function(rowIndex, selector){
+    var aboutElement = function(rowIndex, selector) {
       return element(by.repeater('item in items.items').row(rowIndex)).element(selector);
     };
-    for(var i=0;i<3;i++){
+    for (var i = 0; i < 3; i++) {
       items.click();
       itemClick(i).click();
 
       var itemTitle = element(by.css('h3'));
 
-      if(i===0) {
+      if (i === 0) {
         expect(itemTitle.getText()).toEqual('AngularJSリファレンス');
       }
       switch (i) {
@@ -111,7 +111,7 @@ describe('protractor sample', function() {
     var itemName = function(rowIndex) {
       return aboutElement(rowIndex, by.css('.media-heading'));
     };
-    var aboutElement = function(rowIndex, selector){
+    var aboutElement = function(rowIndex, selector) {
       return element(by.repeater('item in items.items').row(rowIndex)).element(selector);
     };
     expect(itemName(0).getText()).toEqual('AngularJSリファレンス');

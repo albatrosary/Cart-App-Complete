@@ -13,7 +13,7 @@
     .controller('ItemController', ItemController);
 
   ItemController.$inject = ['$routeParams', 'BooksService'];
-  
+
   /**
    * ItemController
    *
@@ -23,19 +23,19 @@
    * @constructor
    */
   function ItemController($routeParams, BooksService) {
-  	console.log('ItemController Constructor');
+    console.log('ItemController Constructor');
     this.isbn = $routeParams.isbn;
     this.BooksService = BooksService;
   }
 
   /**
-   * The controller activate makes it convenient to re-use the logic 
+   * The controller activate makes it convenient to re-use the logic
    * for a refresh for the controller/View, keeps the logic together.
    *
    * @method activate
    */
   ItemController.prototype.activate = function() {
-  	console.log('ItemController activate Method');
+    console.log('ItemController activate Method');
     vm = this;
     var books = vm.BooksService.get({isbn: this.isbn}).$promise;
     books
@@ -48,7 +48,7 @@
    *
    * @property vm
    * @private
-   */ 
+   */
   var vm;
 
   /**
@@ -66,9 +66,9 @@
 
   /**
    * It will capture the error at the time of Gruntfile data acquisition
-   * 
+   *
    * @method error
-   * @param e {Object} error message
+   * @param {Object} e error message
    * @private
    */
   var error = function (e) {

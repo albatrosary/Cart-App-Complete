@@ -1,17 +1,17 @@
-(function(){
+(function() {
   'use strict';
 
-  describe('Controller: HomeController', function () {
+  describe('Controller: HomeController', function() {
 
     beforeEach(module('CartApp.components.home'));
 
     var HomeController;
 
-    beforeEach(inject(function ($controller) {
+    beforeEach(inject(function($controller) {
       HomeController = $controller('HomeController');
     }));
 
-    describe('HomeController',function(){
+    describe('HomeController', function() {
       it('Test Case', function () {
         HomeController.activate();
       });

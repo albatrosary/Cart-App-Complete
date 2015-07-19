@@ -1,11 +1,11 @@
-(function(){
+(function() {
   'use strict';
 
   angular
-    .module('CartApp.mock.service.carts',[])
+    .module('CartApp.mock.service.carts', [])
     .factory('CartsService', CartsService);
 
-  function CartsService(){
+  function CartsService() {
     return {
       get: getSpy,
       add: addSpy,
@@ -23,10 +23,10 @@
   );
 
   var addSpy = jasmine.createSpy().and.returnValue({
-    then: function(cb){
+    then: function(cb) {
       cb(result);
       return {
-        catch: function (ccb) {
+        catch: function(ccb) {
           ccb();
         }
       };
@@ -34,10 +34,10 @@
   });
 
   var removeSpy = jasmine.createSpy().and.returnValue({
-    then: function(cb){
+    then: function(cb) {
       cb(result);
       return {
-        catch: function (ccb) {
+        catch: function(ccb) {
           ccb();
         }
       };
@@ -45,10 +45,10 @@
   });
 
   var clearSpy = jasmine.createSpy().and.returnValue({
-    then: function(cb){
+    then: function(cb) {
       cb(result);
       return {
-        catch: function (ccb) {
+        catch: function(ccb) {
           ccb();
         }
       };

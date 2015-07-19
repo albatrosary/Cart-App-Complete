@@ -3,7 +3,7 @@
  *
  * @module CartApp.value
  */
-(function () {
+(function() {
   'use strict';
 
   angular

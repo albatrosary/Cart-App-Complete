@@ -3,7 +3,7 @@
  *
  * ### Routing
  *
-``` 
+```
    { path: '/',            redirectTo: '/items' },
    { path: '/items',        component: 'items' },
    { path: '/item/:isbn',   component: 'item' },
@@ -14,7 +14,7 @@
  *
  * @module CartApp
  */
-(function () {
+(function() {
   'use strict';
 
   angular
@@ -33,15 +33,15 @@
     .controller('AppController', AppController);
 
   AppController.$routeConfig = [
-    { path: '/',            redirectTo: '/items' },
-    { path: '/items',        component: 'items' },
-    { path: '/item/:isbn',   component: 'item' },
-    { path: '/carts',        component: 'carts' },
-    { path: '/history',      component: 'history' },
-    { path: '/user',         component: 'user' }
+    {path: '/',            redirectTo: '/items'},
+    {path: '/items',        component: 'items'},
+    {path: '/item/:isbn',   component: 'item'},
+    {path: '/carts',        component: 'carts'},
+    {path: '/history',      component: 'history'},
+    {path: '/user',         component: 'user'}
   ];
 
-  AppController.$inject = ['CartAppValue', '$rootScope']; 
+  AppController.$inject = ['CartAppValue', '$rootScope'];
 
   /**
    * AppController
@@ -55,19 +55,18 @@
     console.log('AppController Constructor');
     this.CartAppValue = CartAppValue;
     this.$rootScope = $rootScope;
-    
-    vm = this;    
+
+    vm = this;
     vm.$rootScope.$watch(cartsValue, cartsSet);
   }
 
-
   var vm;
 
-  var cartsSet = function(value){
+  var cartsSet = function(value) {
     vm.carts = value;
   };
 
-  var cartsValue = function(){
+  var cartsValue = function() {
     return vm.CartAppValue.carts;
   };
 })();

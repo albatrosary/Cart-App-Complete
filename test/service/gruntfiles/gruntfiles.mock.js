@@ -1,11 +1,11 @@
-(function(){
+(function() {
   'use strict';
 
   angular
-    .module('CartApp.mock.service.gruntfiles',[])
+    .module('CartApp.mock.service.gruntfiles', [])
     .factory('GruntfilesService', GruntfilesService);
 
-  function GruntfilesService(){
+  function GruntfilesService() {
     return {
       query: querySpy
     };
@@ -31,12 +31,12 @@
 
   var querySpy = jasmine.createSpy().and.returnValue({
     $promise: {
-      then: function(cb){
-        
+      then: function(cb) {
+
         cb(json);
 
         return {
-          catch:function(ccb){
+          catch:function(ccb) {
             ccb(false);
           }
         };

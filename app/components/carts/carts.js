@@ -15,8 +15,8 @@
     ])
     .controller('CartsController', CartsController);
 
-  CartsController.$inject = ['CartsService', 'BooksService', 'UsersService', 'PurchaseService', 'CartAppValue','$location', '$q'];
-  
+  CartsController.$inject = ['CartsService', 'BooksService', 'UsersService', 'PurchaseService', 'CartAppValue', '$location', '$q'];
+
   /**
    * CartsController
    *
@@ -30,7 +30,7 @@
    * @constructor
    */
   function CartsController(CartsService, BooksService, UsersService, PurchaseService, CartAppValue, $location, $q) {
-  	console.log('CartsController Constructor');
+    console.log('CartsController Constructor');
     this.CartsService = CartsService;
     this.BooksService = BooksService;
     this.UsersService = UsersService;
@@ -41,17 +41,17 @@
   }
 
   /**
-   * The controller activate makes it convenient to re-use the logic 
+   * The controller activate makes it convenient to re-use the logic
    * for a refresh for the controller/View, keeps the logic together.
    *
    * @method activate
    */
   CartsController.prototype.activate = function() {
-  	console.log('CartsController activate Method');
+    console.log('CartsController activate Method');
     vm = this;
     vm.list = [];
     var carts = vm.CartsService.get();
-    for(var isbn in carts) {
+    for (var isbn in carts) {
       var books = vm.BooksService.get({isbn: isbn}).$promise;
       books
         .then(setBooks)
@@ -64,7 +64,7 @@
    *
    * @method purchase
    */
-  CartsController.prototype.purchase = function () {
+  CartsController.prototype.purchase = function() {
     console.log('CartsController purchase Method');
 
     deferred = vm.$q.defer();
@@ -75,7 +75,7 @@
       .then(clear)
       .catch(error);
   };
-  
+
   /**
    * Angular ViewModel
    *
@@ -96,12 +96,12 @@
     vm.list.push({
       title: book.title,
       count: carts[book.isbn]
-    }); 
+    });
   };
 
   var checkUser = function (user) {
 
-    if(user.length===0) {
+    if (user.length === 0) {
       vm.$location.path('/user');
       deferred.reject('user is not registered.');
       return deferred.promise;
@@ -114,7 +114,7 @@
 
   /**
    * @method register
-   * @param {Object} user
+   * @param {Object} response
    * @private
    */
   var register = function (response) {
@@ -133,9 +133,9 @@
 
   /**
    * It will capture the error at the time of data acquisition
-   * 
+   *
    * @method error
-   * @param e {Object} error message
+   * @param {Object} e error message
    * @private
    */
   var error = function (e) {

@@ -3,7 +3,7 @@
  *
  * @module CartApp.components.items
  */
-(function () {
+(function() {
   'use strict';
 
   angular
@@ -14,7 +14,7 @@
     .controller('ItemsController', ItemsController);
 
   ItemsController.$inject = ['BooksService', 'CartsService', 'CartAppValue'];
-  
+
   /**
    * ItemsController
    *
@@ -25,11 +25,10 @@
    * @constructor
    */
   function ItemsController(BooksService, CartsService, CartAppValue) {
-  	console.log('ItemsController Constructor');
+    console.log('ItemsController Constructor');
     this.BooksService = BooksService;
     this.CartsService = CartsService;
     this.CartAppValue = CartAppValue;
-    
   }
 
   /**
@@ -44,7 +43,7 @@
   };
 
   /**
-   * The controller activate makes it convenient to re-use the logic 
+   * The controller activate makes it convenient to re-use the logic
    * for a refresh for the controller/View, keeps the logic together.
    * This hook fires just before the nagivation finishes.
    * This hook is useful for cases where you want your component to do some intensive work.
@@ -52,7 +51,7 @@
    * @method activate
    */
   ItemsController.prototype.activate = function() {
-  	console.log('ItemsController activate Method');
+    console.log('ItemsController activate Method');
     vm = this;
     var books = vm.BooksService.query().$promise;
     books
@@ -80,15 +79,14 @@
   ItemsController.prototype.addCart = function(isbn) {
     console.log('ItemsController addCart Method');
     vm.CartsService.add(isbn);
-    vm.CartAppValue.carts = vm.CartAppValue.carts+1;
+    vm.CartAppValue.carts = vm.CartAppValue.carts + 1;
   };
-
 
   ItemsController.prototype.removeCart = function(isbn) {
     console.log('ItemsController removeCart Method');
     vm.CartsService.remove(isbn);
-    if (vm.CartAppValue.carts > 0 ) {
-      vm.CartAppValue.carts = vm.CartAppValue.carts-1;
+    if (vm.CartAppValue.carts > 0) {
+      vm.CartAppValue.carts = vm.CartAppValue.carts - 1;
     }
   };
 
@@ -97,13 +95,13 @@
    *
    * @property vm
    * @private
-   */ 
+   */
   var vm;
 
   /**
    * @property carts
    * @private
-   */ 
+   */
   var carts = [];
 
   /**
@@ -116,9 +114,9 @@
 
   /**
    * It will capture the error at the time of Gruntfile data acquisition
-   * 
+   *
    * @method error
-   * @param e {Object} error message
+   * @param {Object} e error message
    * @private
    */
   var error = function (e) {
