@@ -1,4 +1,4 @@
-(function(){
+(function() {
   'use strict';
 
   module.exports = {
@@ -19,10 +19,17 @@
       }, {
         expand: true,
         dot: true,
-        cwd: '.',
-        src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
+        cwd: 'bower_components/bootstrap/dist',
+        src: 'fonts/*',
         dest: '<%= paths.dist %>'
       }]
+    },
+    styles: {
+      expand: true,
+      dot: true,
+      cwd: '<%= paths.app %>/styles',
+      dest: '.tmp/styles/',
+      src: '{,*/}*.css'
     }
   };
 })();

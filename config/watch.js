@@ -1,4 +1,4 @@
-(function(){
+(function() {
   'use strict';
 
   module.exports = {
@@ -8,7 +8,13 @@
     },
     js: {
       files: ['<%= paths.app %>/{,directives,service,components}/{,*/}*.js'],
-      tasks: ['jshint', 'yuidoc'],
+      tasks: ['jshint', 'jscs'],
+      options: {
+        livereload: true
+      }
+    },
+    html: {
+      files: ['<%= paths.app %>/{,directives,service,components}/{,*/}*.html'],
       options: {
         livereload: true
       }
@@ -19,10 +25,6 @@
     },
     gruntfile: {
       files: ['Gruntfile.js']
-    },
-    sass: {
-      files: ['<%= paths.app %>/styles/{,*/}*.{scss,sass}'],
-      tasks: ['sass:server', 'autoprefixer']
     },
     styles: {
       files: ['<%= paths.app %>/styles/{,*/}*.css'],

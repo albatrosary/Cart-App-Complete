@@ -1,10 +1,10 @@
-(function(){
+(function() {
   'use strict';
 
   var historyApiFallback = require('connect-history-api-fallback');
   var proxyMiddleware = require('http-proxy-middleware');
   var proxy = proxyMiddleware('/api', {target: 'http://localhost:8000/'});
-  
+
   module.exports = {
     options: {
       notify: false,
@@ -24,7 +24,7 @@
             '/bower_components': './bower_components'
           },
           /* SPA html5 mode support */
-          middleware: [ historyApiFallback(), proxy ]
+          middleware: [historyApiFallback(), proxy]
         }
       }
     },
@@ -44,8 +44,11 @@
     },
     dist: {
       options: {
-        server: '<%= paths.dist %>',
-        background: false,
+        server: {
+          baseDir: ['<%= paths.dist %>'],
+          middleware: [historyApiFallback(), proxy]
+        },
+        background: false
       }
     },
     e2e: {
@@ -59,7 +62,7 @@
             '/bower_components': './bower_components'
           },
           /* SPA html5 mode support */
-          middleware: [ historyApiFallback() , proxy]
+          middleware: [historyApiFallback(), proxy]
         }
       }
     },

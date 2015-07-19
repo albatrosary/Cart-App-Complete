@@ -2,7 +2,7 @@
   "name": "CartApp",
   "private": true,
   "dependencies": {
-    "bootstrap-sass-official": "~3.3.5",
+    "bootstrap": "~3.3.5",
     "angular": "~1.4.3",
     "angular-new-router": "~0.5.3",
     "angular-resource": "~1.4.3",
@@ -11,6 +11,9 @@
   "overrides": {
     "angular-new-router": {
       "main": "dist/router.es5.js"
+    },
+    "bootstrap": {
+      "main": "dist/css/bootstrap.css"
     }
   },
   "devDependencies": {

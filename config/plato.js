@@ -1,14 +1,10 @@
-(function(){
+(function() {
   'use strict';
 
   module.exports = {
     options: {
-      jshint: '<%= jshintrc.app %>',
-      complexity: {
-        logicalor: true,
-        switchcase: true,
-        forin: true,
-        trycatch: true
+      options : {
+        jshint : '<%= jshintrc.app %>'
       }
     },
     app:{

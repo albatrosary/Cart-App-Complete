@@ -1,6 +1,6 @@
-(function(){
+(function() {
   'use strict';
-  
+
   module.exports = {
     compile: {
       name: '<%= pkg.name %>',
@@ -9,7 +9,6 @@
       url: '<%= pkg.homepage %>',
       options: {
         paths: [
-          '<%= paths.app %>/scripts',
           '<%= paths.app %>/components',
           '<%= paths.app %>/directives',
           '<%= paths.app %>/service',
