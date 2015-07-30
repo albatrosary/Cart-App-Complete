@@ -46,7 +46,7 @@ module.exports = function(config) {
       'test/components/history/history.spec.js',
       'test/components/home/home.spec.js',
       'test/components/item/item.spec.js',
-      'test/components/items/items.spec.js',
+      'test/components/itemlist/itemlist.spec.js',
       'test/components/user/user.spec.js',
       'test/directives/message/message.spec.js',
       'test/main.spec.js',
