@@ -62,6 +62,7 @@
     vm.publisher   = item.publisher;
     vm.isbn        = item.isbn;
     vm.price       = item.price;
+    vm.image       = item.image;
   };
 
   /**
