@@ -7,17 +7,17 @@ describe('protractor sample', function() {
 
   it('Purchase test', function() {
     // menu
-    var items = element(by.css('a[ng-link="items"]'));
+    var items = element(by.css('a[ng-link="itemlist"]'));
     items.click();
 
     var itemAddClick = function(rowIndex) {
-      return aboutElement(rowIndex, by.css('a[ng-click="items.addCart(item.isbn)"]'));
+      return aboutElement(rowIndex, by.css('a[ng-click="itemlist.addCart(data.isbn)"]'));
     };
     var itemRemoveClick = function(rowIndex) {
-      return aboutElement(rowIndex, by.css('a[ng-click="items.removeCart(item.isbn)"]'));
+      return aboutElement(rowIndex, by.css('a[ng-click="itemlist.removeCart(data.isbn)"]'));
     };
     var aboutElement = function(rowIndex, selector) {
-      return element(by.repeater('item in items.items').row(rowIndex)).element(selector);
+      return element(by.repeater('data in itemlist.items').row(rowIndex)).element(selector);
     };
     var i, count;
     for (i = 0; i < 5; i++) {
@@ -71,12 +71,12 @@ describe('protractor sample', function() {
 
   it('item view test', function() {
     // menu
-    var items = element(by.css('a[ng-link="items"]'));
+    var items = element(by.css('a[ng-link="itemlist"]'));
     var itemClick = function(rowIndex) {
-      return aboutElement(rowIndex, by.css('a[ng-link="item({isbn: item.isbn})"]'));
+      return aboutElement(rowIndex, by.css('a[ng-link="item({isbn: data.isbn})"]'));
     };
     var aboutElement = function(rowIndex, selector) {
-      return element(by.repeater('item in items.items').row(rowIndex)).element(selector);
+      return element(by.repeater('data in itemlist.items').row(rowIndex)).element(selector);
     };
     for (var i = 0; i < 3; i++) {
       items.click();
@@ -85,17 +85,17 @@ describe('protractor sample', function() {
       var itemTitle = element(by.css('h3'));
 
       if (i === 0) {
-        expect(itemTitle.getText()).toEqual('AngularJSリファレンス');
+        expect(itemTitle.getText()).toEqual('絵で見てわかるWebアプリ開発の仕組み');
       }
       switch (i) {
         case 0:
-          expect(itemTitle.getText()).toEqual('AngularJSリファレンス');
+          expect(itemTitle.getText()).toEqual('絵で見てわかるWebアプリ開発の仕組み');
           break;
         case 1:
-          expect(itemTitle.getText()).toEqual('はじめてのAngularJS―「双方向データ結合」&「依存性注入」 「Mode」「View」「Controller」に分離して作業を明確化!');
+          expect(itemTitle.getText()).toEqual('ブレイクスルーJavaScript');
           break;
         case 2:
-          expect(itemTitle.getText()).toEqual('シングルページWebアプリケーション ―Node.js、MongoDBを活用したJavaScript SPA');
+          expect(itemTitle.getText()).toEqual('10日でおぼえるJSP＆サーブレット入門教室 第4版');
           break;
       }
     }
@@ -103,7 +103,7 @@ describe('protractor sample', function() {
 
   it('items view test', function() {
     // menu
-    var items = element(by.css('a[ng-link="items"]'));
+    var items = element(by.css('a[ng-link="itemlist"]'));
     items.click();
     var title = element(by.css('.navbar-brand'));
     expect(title.getText()).toEqual('CartApp');
@@ -112,10 +112,10 @@ describe('protractor sample', function() {
       return aboutElement(rowIndex, by.css('.media-heading'));
     };
     var aboutElement = function(rowIndex, selector) {
-      return element(by.repeater('item in items.items').row(rowIndex)).element(selector);
+      return element(by.repeater('data in itemlist.items').row(rowIndex)).element(selector);
     };
-    expect(itemName(0).getText()).toEqual('AngularJSリファレンス');
-    expect(itemName(1).getText()).toEqual('はじめてのAngularJS―「双方向データ結合」&「依存性注入」 「Mode」「View」「Controller」に分離して作業を明確化!');
-    expect(itemName(2).getText()).toEqual('シングルページWebアプリケーション ―Node.js、MongoDBを活用したJavaScript SPA');
+    expect(itemName(0).getText()).toEqual('絵で見てわかるWebアプリ開発の仕組み');
+    expect(itemName(1).getText()).toEqual('ブレイクスルーJavaScript');
+    expect(itemName(2).getText()).toEqual('10日でおぼえるJSP＆サーブレット入門教室 第4版');
   });
 });
