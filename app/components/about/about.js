@@ -56,7 +56,7 @@
    * Setting user data to ViewModel
    *
    * @method setlist
-   * @param {Object} list Gruntfiles List
+   * @param {Object} list - Gruntfiles List
    * @private
    */
   var setlist = function (list) {
@@ -67,7 +67,7 @@
    * It will capture the error at the time of data acquisition
    *
    * @method error
-   * @param {Object} e error message
+   * @param {Object} e - error message
    * @private
    */
   var error = function (e) {

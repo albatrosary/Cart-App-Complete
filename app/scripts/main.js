@@ -24,7 +24,7 @@
       'CartApp.config',
       'CartApp.value',
       'CartApp.directive.message',
-      'CartApp.components.items',
+      'CartApp.components.itemlist',
       'CartApp.components.item',
       'CartApp.components.carts',
       'CartApp.components.history',
@@ -33,8 +33,8 @@
     .controller('AppController', AppController);
 
   AppController.$routeConfig = [
-    {path: '/',            redirectTo: '/items'},
-    {path: '/items',        component: 'items'},
+    {path: '/',            redirectTo: '/itemlist'},
+    {path: '/itemlist',     component: 'itemlist'},
     {path: '/item/:isbn',   component: 'item'},
     {path: '/carts',        component: 'carts'},
     {path: '/history',      component: 'history'},

@@ -7,25 +7,25 @@
   'use strict';
 
   angular
-    .module('CartApp.components.items', [
+    .module('CartApp.components.itemlist', [
       'CartApp.service.books',
       'CartApp.service.carts'
     ])
-    .controller('ItemsController', ItemsController);
+    .controller('ItemlistController', ItemlistController);
 
-  ItemsController.$inject = ['BooksService', 'CartsService', 'CartAppValue'];
+  ItemlistController.$inject = ['BooksService', 'CartsService', 'CartAppValue'];
 
   /**
-   * ItemsController
+   * ItemlistController
    *
-   * @class ItemsController
+   * @class ItemlistController
    * @param {Object} BooksService
    * @param {Object} CartsService
    * @param {Object} CartAppValue
    * @constructor
    */
-  function ItemsController(BooksService, CartsService, CartAppValue) {
-    console.log('ItemsController Constructor');
+  function ItemlistController(BooksService, CartsService, CartAppValue) {
+    console.log('ItemlistController Constructor');
     this.BooksService = BooksService;
     this.CartsService = CartsService;
     this.CartAppValue = CartAppValue;
@@ -37,8 +37,8 @@
    *
    * @method canActivate
    */
-  ItemsController.prototype.canActivate = function() {
-    console.log('ItemsController canActivate Method');
+  ItemlistController.prototype.canActivate = function() {
+    console.log('ItemlistController canActivate Method');
     return true;
   };
 
@@ -50,8 +50,8 @@
    *
    * @method activate
    */
-  ItemsController.prototype.activate = function() {
-    console.log('ItemsController activate Method');
+  ItemlistController.prototype.activate = function() {
+    console.log('ItemlistController activate Method');
     vm = this;
     var books = vm.BooksService.query().$promise;
     books
@@ -63,8 +63,8 @@
    * This hook fires for each component that is removed as part of navigation. canDeactivate fires before any new components are instantiated. If any of them return false, a rejected promise, or a promise that resolves to false, the navigation is cancelled.
    * canDeactivate is useful for making sure that data is properly persisted before navigating away.
    */
-  ItemsController.prototype.canDeactivate = function() {
-    console.log('ItemsController canDeactivate Method');
+  ItemlistController.prototype.canDeactivate = function() {
+    console.log('ItemlistController canDeactivate Method');
     return true;
   };
 
@@ -72,18 +72,18 @@
    * This hook fires for each component that is removed as part of navigation. deactivate is useful for doing cleanup work.
    * This hook fires after the canActivate of the new component and canDeactivate of the component to be removed, but before activate of the new component.
    */
-  ItemsController.prototype.deactivate = function() {
-    console.log('ItemsController deactivate Method');
+  ItemlistController.prototype.deactivate = function() {
+    console.log('ItemlistController deactivate Method');
   };
 
-  ItemsController.prototype.addCart = function(isbn) {
-    console.log('ItemsController addCart Method');
+  ItemlistController.prototype.addCart = function(isbn) {
+    console.log('ItemlistController addCart Method');
     vm.CartsService.add(isbn);
     vm.CartAppValue.carts = vm.CartAppValue.carts + 1;
   };
 
-  ItemsController.prototype.removeCart = function(isbn) {
-    console.log('ItemsController removeCart Method');
+  ItemlistController.prototype.removeCart = function(isbn) {
+    console.log('ItemlistController removeCart Method');
     vm.CartsService.remove(isbn);
     if (vm.CartAppValue.carts > 0) {
       vm.CartAppValue.carts = vm.CartAppValue.carts - 1;

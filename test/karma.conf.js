@@ -30,7 +30,7 @@ module.exports = function(config) {
       'app/components/history/history.js',
       'app/components/home/home.js',
       'app/components/item/item.js',
-      'app/components/items/items.js',
+      'app/components/itemlist/itemlist.js',
       'app/components/user/user.js',
       'app/directives/message/message.js',
       'app/scripts/config.js',
