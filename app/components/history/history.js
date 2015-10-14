@@ -50,7 +50,7 @@
   var vm;
 
   var setList = function(data) {
-    data.items = angular.toJson(data.items);
+    data.items = angular.toJson(data[0].items);
     vm.list = data;
   };
 
