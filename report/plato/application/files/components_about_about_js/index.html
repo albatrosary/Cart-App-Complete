@@ -44,11 +44,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
-      <p class="stat">133.40</p>
+      <p class="stat">78.01</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
-      <p class="stat">72</p>
+      <p class="stat">71</p>
     </div>
   </div>
   <div class="row historical">
@@ -114,12 +114,12 @@
    */
   function AboutController(GruntfilesService) {
     console.log(&#039;AboutController Constructor&#039;);
-  
+
     this.GruntfilesService = GruntfilesService;
   }
 
   /**
-   * The controller activate makes it convenient to re-use the logic 
+   * The controller activate makes it convenient to re-use the logic
    * for a refresh for the controller/View, keeps the logic together.
    *
    * @method activate
@@ -133,7 +133,7 @@
       .then(setlist)
       .catch(error);
   };
-  
+
   /**
    * Angular ViewModel
    *
@@ -143,12 +143,11 @@
    */
   var vm;
 
-
   /**
    * Setting user data to ViewModel
    *
    * @method setlist
-   * @param list {Object} Gruntfiles List
+   * @param {Object} list - Gruntfiles List
    * @private
    */
   var setlist = function (list) {
@@ -159,7 +158,7 @@
    * It will capture the error at the time of data acquisition
    *
    * @method error
-   * @param e {Object} error message
+   * @param {Object} e - error message
    * @private
    */
   var error = function (e) {

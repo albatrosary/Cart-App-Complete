@@ -44,11 +44,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
-      <p class="stat">116.61</p>
+      <p class="stat">68.19</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
-      <p class="stat">57</p>
+      <p class="stat">56</p>
     </div>
   </div>
   <div class="row historical">
@@ -94,7 +94,7 @@
  *
  * ### Routing
  *
-``` 
+```
    { path: &#039;/&#039;,            redirectTo: &#039;/items&#039; },
    { path: &#039;/items&#039;,        component: &#039;items&#039; },
    { path: &#039;/item/:isbn&#039;,   component: &#039;item&#039; },
@@ -105,7 +105,7 @@
  *
  * @module CartApp
  */
-(function () {
+(function() {
   &#039;use strict&#039;;
 
   angular
@@ -115,7 +115,7 @@
       &#039;CartApp.config&#039;,
       &#039;CartApp.value&#039;,
       &#039;CartApp.directive.message&#039;,
-      &#039;CartApp.components.items&#039;,
+      &#039;CartApp.components.itemlist&#039;,
       &#039;CartApp.components.item&#039;,
       &#039;CartApp.components.carts&#039;,
       &#039;CartApp.components.history&#039;,
@@ -124,15 +124,15 @@
     .controller(&#039;AppController&#039;, AppController);
 
   AppController.$routeConfig = [
-    { path: &#039;/&#039;,            redirectTo: &#039;/items&#039; },
-    { path: &#039;/items&#039;,        component: &#039;items&#039; },
-    { path: &#039;/item/:isbn&#039;,   component: &#039;item&#039; },
-    { path: &#039;/carts&#039;,        component: &#039;carts&#039; },
-    { path: &#039;/history&#039;,      component: &#039;history&#039; },
-    { path: &#039;/user&#039;,         component: &#039;user&#039; }
+    {path: &#039;/&#039;,            redirectTo: &#039;/itemlist&#039;},
+    {path: &#039;/itemlist&#039;,     component: &#039;itemlist&#039;},
+    {path: &#039;/item/:isbn&#039;,   component: &#039;item&#039;},
+    {path: &#039;/carts&#039;,        component: &#039;carts&#039;},
+    {path: &#039;/history&#039;,      component: &#039;history&#039;},
+    {path: &#039;/user&#039;,         component: &#039;user&#039;}
   ];
 
-  AppController.$inject = [&#039;CartAppValue&#039;, &#039;$rootScope&#039;]; 
+  AppController.$inject = [&#039;CartAppValue&#039;, &#039;$rootScope&#039;];
 
   /**
    * AppController
@@ -146,19 +146,18 @@
     console.log(&#039;AppController Constructor&#039;);
     this.CartAppValue = CartAppValue;
     this.$rootScope = $rootScope;
-    
-    vm = this;    
+
+    vm = this;
     vm.$rootScope.$watch(cartsValue, cartsSet);
   }
 
-
   var vm;
 
-  var cartsSet = function(value){
+  var cartsSet = function(value) {
     vm.carts = value;
   };
 
-  var cartsValue = function(){
+  var cartsValue = function() {
     return vm.CartAppValue.carts;
   };
 })();</textarea>

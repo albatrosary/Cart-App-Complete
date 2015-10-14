@@ -1,7 +1,7 @@
 <div class="media" ng-repeat="data in itemlist.items">
   <div class="media-left">
     <a ng-link="item({isbn: data.isbn})">
-      <img class="media-object" src="{{data.image}}" alt="...">
+      <img class="media-object" ng-src="{{data.image}}" alt="...">
     </a>
   </div>
   <div class="media-body">

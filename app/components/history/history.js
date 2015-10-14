@@ -62,6 +62,7 @@
    * @private
    */
   var error = function(e) {
+    console.log(e);
     vm.error = e;
   };
 

@@ -44,7 +44,7 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
-      <p class="stat">120.65</p>
+      <p class="stat">70.57</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
@@ -106,8 +106,8 @@
     ])
     .controller(&#039;CartsController&#039;, CartsController);
 
-  CartsController.$inject = [&#039;CartsService&#039;, &#039;BooksService&#039;, &#039;UsersService&#039;, &#039;PurchaseService&#039;, &#039;CartAppValue&#039;,&#039;$location&#039;, &#039;$q&#039;];
-  
+  CartsController.$inject = [&#039;CartsService&#039;, &#039;BooksService&#039;, &#039;UsersService&#039;, &#039;PurchaseService&#039;, &#039;CartAppValue&#039;, &#039;$location&#039;, &#039;$q&#039;];
+
   /**
    * CartsController
    *
@@ -121,7 +121,7 @@
    * @constructor
    */
   function CartsController(CartsService, BooksService, UsersService, PurchaseService, CartAppValue, $location, $q) {
-  	console.log(&#039;CartsController Constructor&#039;);
+    console.log(&#039;CartsController Constructor&#039;);
     this.CartsService = CartsService;
     this.BooksService = BooksService;
     this.UsersService = UsersService;
@@ -132,17 +132,17 @@
   }
 
   /**
-   * The controller activate makes it convenient to re-use the logic 
+   * The controller activate makes it convenient to re-use the logic
    * for a refresh for the controller/View, keeps the logic together.
    *
    * @method activate
    */
   CartsController.prototype.activate = function() {
-  	console.log(&#039;CartsController activate Method&#039;);
+    console.log(&#039;CartsController activate Method&#039;);
     vm = this;
     vm.list = [];
     var carts = vm.CartsService.get();
-    for(var isbn in carts) {
+    for (var isbn in carts) {
       var books = vm.BooksService.get({isbn: isbn}).$promise;
       books
         .then(setBooks)
@@ -155,7 +155,7 @@
    *
    * @method purchase
    */
-  CartsController.prototype.purchase = function () {
+  CartsController.prototype.purchase = function() {
     console.log(&#039;CartsController purchase Method&#039;);
 
     deferred = vm.$q.defer();
@@ -166,7 +166,7 @@
       .then(clear)
       .catch(error);
   };
-  
+
   /**
    * Angular ViewModel
    *
@@ -187,12 +187,12 @@
     vm.list.push({
       title: book.title,
       count: carts[book.isbn]
-    }); 
+    });
   };
 
   var checkUser = function (user) {
 
-    if(user.length===0) {
+    if (user.length === 0) {
       vm.$location.path(&#039;/user&#039;);
       deferred.reject(&#039;user is not registered.&#039;);
       return deferred.promise;
@@ -205,7 +205,7 @@
 
   /**
    * @method register
-   * @param {Object} user
+   * @param {Object} response
    * @private
    */
   var register = function (response) {
@@ -224,9 +224,9 @@
 
   /**
    * It will capture the error at the time of data acquisition
-   * 
+   *
    * @method error
-   * @param e {Object} error message
+   * @param {Object} e error message
    * @private
    */
   var error = function (e) {

@@ -44,7 +44,7 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
-      <p class="stat">133.87</p>
+      <p class="stat">78.28</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
@@ -102,7 +102,7 @@
     .controller(&#039;ContactController&#039;, ContactController);
 
   ContactController.$inject = [];
-  
+
   /**
    * ContactController
    *
@@ -110,11 +110,11 @@
    * @constructor
    */
   function ContactController() {
-  	console.log(&#039;ContactController Constructor&#039;);
+    console.log(&#039;ContactController Constructor&#039;);
   }
 
   /**
-   * The controller activate makes it convenient to re-use the logic 
+   * The controller activate makes it convenient to re-use the logic
    * for a refresh for the controller/View, keeps the logic together.
   *
   * @method activate
@@ -126,7 +126,7 @@
   * @return {Boolean} Returns true on success
   */
   ContactController.prototype.activate = function() {
-  	console.log(&#039;ContactController activate Method&#039;);
+    console.log(&#039;ContactController activate Method&#039;);
     vm = this;
     vm.case1 = 20;
     someMethod();
@@ -137,16 +137,16 @@
    *
    * @property vm
    * @private
-   */ 
-   var vm;
+   */
+  var vm;
 
   /**
    * @method someMethod
    * @private
    */
-  var someMethod = function () {
-     vm.case2 = 10;
-   };
+  var someMethod = function() {
+    vm.case2 = 10;
+  };
 })();</textarea>
   </div>
 </div>

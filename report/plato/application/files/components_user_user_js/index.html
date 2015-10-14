@@ -44,7 +44,7 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
-      <p class="stat">125.25</p>
+      <p class="stat">73.25</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
@@ -113,18 +113,18 @@
    * @constructor
    */
   function UserController(UsersService, $location) {
-  	console.log(&#039;UserController Constructor&#039;);
+    console.log(&#039;UserController Constructor&#039;);
     this.UsersService = UsersService;
   }
 
   /**
-   * The controller activate makes it convenient to re-use the logic 
+   * The controller activate makes it convenient to re-use the logic
    * for a refresh for the controller/View, keeps the logic together.
    *
    * @method activate
    */
   UserController.prototype.activate = function() {
-  	console.log(&#039;UserController activate Method&#039;);
+    console.log(&#039;UserController activate Method&#039;);
     vm = this;
     var users = vm.UsersService.query().$promise;
     users
@@ -174,7 +174,7 @@
    *
    * @property vm
    * @private
-   */ 
+   */
   var vm;
 
   /**
@@ -189,9 +189,9 @@
     vm.name = user[0].name;
     vm.address = user[0].address;
     vm.tel = user[0].tel;
-    vm.mail = user[0].mail; 
+    vm.mail = user[0].mail;
   };
-  
+
   /**
    * @method saveSuccess
    * @private
@@ -209,17 +209,17 @@
     vm.status = &#039;success&#039;;
     vm.message = &#039;削除しました&#039;;
   };
-  
+
   /**
    * It will capture the error at the time of Gruntfile data acquisition
-   * 
+   *
    * @method error
-   * @param e {Object} error message
+   * @param {Object} e error message
    * @private
    */
   var error = function (e) {
     vm.status = &#039;dengire&#039;;
-    vm.message = &#039;エラーが発生しました：&#039;+e;
+    vm.message = &#039;エラーが発生しました：&#039; + e;
   };
 
 })();</textarea>

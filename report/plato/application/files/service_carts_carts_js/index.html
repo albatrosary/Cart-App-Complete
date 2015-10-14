@@ -44,7 +44,7 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
-      <p class="stat">123.50</p>
+      <p class="stat">72.24</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
@@ -94,30 +94,30 @@
  *
  * @module CartApp.service.carts
  */
-(function () {
+(function() {
   &#039;use strict&#039;;
-  
+
   angular
-    .module(&#039;CartApp.service.carts&#039;,[])
+    .module(&#039;CartApp.service.carts&#039;, [])
     .factory(&#039;CartsService&#039;, CartsService);
 
   CartsService.$inject = [];
 
   /**
-   * 
+   *
    * @class CartsService
    * @constructor
    */
-  function CartsService () {
+  function CartsService() {
     return cartsService;
   }
 
-  var carts=[];
+  var carts = [];
 
   var cartsService = {
     purchase: function () {
       var _carts = [];
-      for(var isbn in carts) {
+      for (var isbn in carts) {
         var item = {
           &#039;isbn&#039;: isbn,
           &#039;count&#039;: carts[isbn]
@@ -134,7 +134,7 @@
       if (!carts[isbn]) {
         carts[isbn] = 1;
       } else {
-        carts[isbn] = carts[isbn]+1;
+        carts[isbn] = carts[isbn] + 1;
       }
     },
     remove: function (isbn) {
@@ -142,13 +142,13 @@
         return ;
       }
 
-      carts[isbn] = carts[isbn]-1;
+      carts[isbn] = carts[isbn] - 1;
       if (carts[isbn] === 0) {
         delete carts[isbn];
       }
     },
     clear: function () {
-      carts=[];
+      carts = [];
     }
   };
 

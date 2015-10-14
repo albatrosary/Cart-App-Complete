@@ -44,7 +44,7 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
-      <p class="stat">121.97</p>
+      <p class="stat">71.33</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
@@ -98,7 +98,7 @@
   &#039;use strict&#039;;
 
   angular
-    .module(&#039;CartApp.directive.message&#039;,[])
+    .module(&#039;CartApp.directive.message&#039;, [])
     .directive(&#039;cartAppMessage&#039;, messageDirective);
 
   messageDirective.$inject = [];
@@ -109,7 +109,7 @@
    * @class messageDirective
    * @constructor
    */
-  function messageDirective(){
+  function messageDirective() {
 
     return {
       restrict: &#039;AE&#039;,

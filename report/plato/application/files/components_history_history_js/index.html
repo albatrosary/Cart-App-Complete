@@ -44,7 +44,7 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
-      <p class="stat">130.76</p>
+      <p class="stat">76.47</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
@@ -94,7 +94,7 @@
  *
  * @module CartApp.components.history
  */
-(function () {
+(function() {
   &#039;use strict&#039;;
 
   angular
@@ -112,18 +112,18 @@
    * @constructor
    */
   function HistoryController(PurchaseService) {
-  	console.log(&#039;HistoryController Constructor&#039;);
+    console.log(&#039;HistoryController Constructor&#039;);
     this.PurchaseService = PurchaseService;
   }
 
   /**
-   * The controller activate makes it convenient to re-use the logic 
+   * The controller activate makes it convenient to re-use the logic
    * for a refresh for the controller/View, keeps the logic together.
    *
    * @method activate
    */
   HistoryController.prototype.activate = function() {
-  	console.log(&#039;HistoryController activate Method&#039;);
+    console.log(&#039;HistoryController activate Method&#039;);
     vm = this;
     vm.list = [];
     var purchase = vm.PurchaseService.query().$promise;
@@ -137,22 +137,22 @@
    *
    * @property vm
    * @private
-   */ 
+   */
   var vm;
 
-  var setList = function (data) {
+  var setList = function(data) {
     data.items = angular.toJson(data.items);
     vm.list = data;
   };
-  
+
   /**
    * It will capture the error at the time of Gruntfile data acquisition
-   * 
+   *
    * @method error
-   * @param e {Object} error message
+   * @param {Object} e error message
    * @private
    */
-  var error = function (e) {
+  var error = function(e) {
     vm.error = e;
   };
 
