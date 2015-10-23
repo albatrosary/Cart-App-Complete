@@ -10,7 +10,6 @@ exports = module.exports = function(app) {
 
   app.get('/api/purchase', function(req, res) {
     // something
-    console.log('purchase', purchase);
     res.status(200).json(purchase);
   });
 
@@ -23,12 +22,10 @@ exports = module.exports = function(app) {
 
   app.post('/api/purchase', function(req, res) {
     // something
-    console.log(req.body);
     purchase.push({
       'datetime': (new Date()).toLocaleString(),
       'items': req.body
     });
-    console.log(purchase);
     res.sendStatus(200);
   });
 

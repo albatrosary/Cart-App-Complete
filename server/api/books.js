@@ -10,14 +10,12 @@ exports = module.exports = function(app) {
 
   app.get('/api/books', function(req, res) {
     // something
-    console.log('/api/books');
     res.status(200).json(books);
   });
 
   app.get('/api/books/:id', function(req, res) {
     var id = req.params.id;
     // something
-    console.log('/api/books/:id');
     var book = books.filter(function(item, index) {
       if (item.isbn === id) {
         return true;
